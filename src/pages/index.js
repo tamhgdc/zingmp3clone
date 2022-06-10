@@ -1,0 +1,32 @@
+import { Routes, Route } from 'react-router-dom';
+import './index.css';
+import Home from './Home/home';
+import Album from './Album/album';
+import ZingChart from './Zingchart/zingchart';
+import Search from './Search/search';
+import PageNotFound from './PageNotFound/pageNotFound';
+import Radio from './Radio/radio';
+import Follow from './Follow/follow';
+import MyMusic from './MyMusic/mymusic';
+import NewMusic from './NewMusic/newMusic';
+
+import config from '~/config';
+
+function Main() {
+    return (
+        <div className="main">
+            <Routes>
+                <Route path={config.routes.home} exact element={<Home />} />
+                <Route path={config.routes.album} element={<Album />} />
+                <Route path={config.routes.zingchart} element={<ZingChart />} />
+                <Route path={config.routes.search} element={<Search />} />
+                <Route path={config.routes.pageNotFound} element={<PageNotFound />} />
+                <Route path={config.routes.radio} element={<Radio />} />
+                <Route path={config.routes.follow} element={<Follow />} />
+                <Route path={config.routes.mymusic} element={<MyMusic />} />
+                <Route path={config.routes.newmusic} element={<NewMusic />} />
+            </Routes>
+        </div>
+    );
+}
+export default Main;

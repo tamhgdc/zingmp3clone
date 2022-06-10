@@ -1,0 +1,95 @@
+.main {
+    width: calc(100% - var(--default-width-nav));
+    position: absolute;
+    z-index: 1;
+    padding: 100px 60px 108px;
+    left: var(--default-width-nav);
+    color: var(--white);
+    background-color: var(--default-bgcolor-body);
+}
+
+.boxBanner {
+    width: 100%;
+    position: relative;
+}
+
+.pageTitle {
+    font-size: 20px;
+    margin: 20px 0 25px 0;
+}
+
+.bannerImg,
+.btnImgList {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: none;
+}
+
+.imgList {
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+    transition: all 0.4s;
+}
+
+.bannerImg:hover .imgList {
+    transform: scale(1.1);
+}
+
+.bannerImg:hover .playSongMain {
+    display: flex;
+}
+
+.playSongMain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    color: var(--white);
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.mainListMore,
+.mainListFullLike,
+.mainListLike {
+    font-size: 20px;
+}
+
+.mainListFullLike {
+    color: rgb(114, 0, 161);
+}
+
+.icon.mainListPlay {
+    font-size: 50px;
+}
+
+.linkAlbum {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.songName {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 10px 0;
+}
+
+.songerName {
+    color: var(--color-text-detail);
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}

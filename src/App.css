@@ -1,38 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --default-bgcolor-nav: #231b2e;
+    --default-width-nav: 240px;
+
+    --default-hieght-header: 70px;
+
+    --default-bgcolor-body: #170f23;
+
+    --default-height-footer: 90px;
+    --default-bgcolor-footer: #120c1c;
+
+    --color-default: #b1b1b1;
+    --color-text-detail: #8b8791;
+    --color-text-search: #fbfafc;
+    --white: #fff;
+
+    --bgcolor-range: #ffffff66;
+}
+
+body {
+    background-color: var(--default-bgcolor-body);
+    color: var(--color-text-search);
+    overflow-y: overlay;
+}
+
 .App {
-  text-align: center;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    width: 100%;
+    z-index: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar-track {
+    padding: 2px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar {
+    width: 4px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    /* box-shadow: inset 0 0 6px rgba(0,0,0,.3); */
+    background-color: #737272;
 }
 
-.App-link {
-  color: #61dafb;
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 60px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: none;
+}
+
+.loading {
+    position: relative;
+    background-color: #ac9c9c91 !important;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    background-image: linear-gradient(to right, rgba(221, 221, 221, 0.164), transparent);
+    animation: loading 1s infinite;
+}
+
+@keyframes loading {
+    100% {
+        transform: translateX(100%);
+    }
 }

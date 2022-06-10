@@ -1,0 +1,77 @@
+.banner {
+    width: 100%;
+    height: 180px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.btnBanner{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(177, 177, 177, 0.185);
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    display: none;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prevBtnBanner{
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nextBtnBanner{
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.banner:hover .btnBanner{
+    display: flex;
+}
+
+.btnImgBanner{
+    position: absolute;
+    padding: unset;
+    top: 0;
+    left: 50%;
+    border: none;
+    transform: translateX(-50%);
+    opacity: 0;
+    z-index: 1;
+}
+
+.btnImgBanner, .imgBanner{
+    width: 315px;
+    height: 180px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    
+    transition: all 1s;
+}
+
+.imgLeft{
+    opacity: 1;
+    z-index: 7;
+    left: 0;
+    transform: translateX(4%);
+}
+
+.imgSelected{
+    opacity: 1;
+    left: 50%;
+    z-index: 8;
+    transform: translateX(-48%);
+}
+
+.imgRight{
+    opacity: 1;
+    right: 0;
+    z-index: 8;
+    transform: translateX(59%);
+}
