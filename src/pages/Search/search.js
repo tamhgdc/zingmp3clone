@@ -1,14 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
+import FCSaveLocalList from '~/component/FCSaveLocalList';
 
 import secondsToHms from '~/component/FCTime';
 import Context from '~/context/context';
 import { useDebounce } from '~/hooks';
+import { URL } from '~/url';
 import './search.css';
 
 function Search() {
     const context = useContext(Context);
-
     const navigate = useNavigate();
 
     const [suggestSong, setSuggestSong] = useState([]);
@@ -46,7 +48,7 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(`http://localhost:8000/api/search/${debouncedValue}`)
+        fetch(`${URL}search/${debouncedValue}`)
             .then((res) => res.json())
             .then((data) => {
                 setSuggestSong(data.data.songs);
@@ -65,10 +67,8 @@ function Search() {
         context.playSong();
         context.currentSong(index);
 
-        const JSONSongList = JSON.stringify(suggestSong);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(index);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(suggestSong);
+        FCSaveLocalIndex(index);
     };
 
     const handleClickTop = () => {

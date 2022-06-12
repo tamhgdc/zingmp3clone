@@ -8,6 +8,8 @@ import './zingchart.css';
 import { Line } from 'react-chartjs-2';
 import { CategoryScale } from 'chart.js';
 import Chart from 'chart.js/auto';
+import FCSaveLocalList from '~/component/FCSaveLocalList';
+import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 Chart.register(CategoryScale);
 
 function ZingChart() {
@@ -60,10 +62,8 @@ function ZingChart() {
         context.playSong();
         context.currentSong(index);
 
-        const JSONSongList = JSON.stringify(chart.RTChart.items);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(index);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(chart.RTChart.items);
+        FCSaveLocalIndex(index);
     };
 
     const handlePlayAll = () => {
@@ -71,10 +71,8 @@ function ZingChart() {
         context.playSong();
         context.currentSong(0);
 
-        const JSONSongList = JSON.stringify(chart.RTChart.items);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(0);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(chart.RTChart.items);
+        FCSaveLocalIndex(0);
     };
 
     const [view100, setView100] = useState(false);
@@ -274,7 +272,6 @@ function ZingChart() {
                         </button>
                     )}
                 </div>
-                <div className="zingchart__footer"></div>
             </div>
         );
     };
@@ -288,8 +285,8 @@ function ZingChart() {
             {chart.length !== 0 && (
                 <>
                     <div className="new-music-bg"></div>
-                    <div class="bg-alpha"></div>
-                    <div class="bg-alpha-1"></div>
+                    <div className="bg-alpha"></div>
+                    <div className="bg-alpha-1"></div>
                 </>
             )}
             <div className="zingchart__header">

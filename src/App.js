@@ -2,6 +2,7 @@ import Context from './context/context';
 import './App.css';
 import './icon.css';
 import './grid.css';
+import './responsive.scss';
 
 import Nav from './layouts/Nav/nav';
 import Header from './layouts/Header/header';

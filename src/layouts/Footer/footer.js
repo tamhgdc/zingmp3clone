@@ -3,6 +3,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import Context from '~/context/context';
 import secondsToHms from '~/component/FCTime';
 import './footer.css';
+import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
+import { URL } from '~/url';
 
 function Footer() {
     const context = useContext(Context);
@@ -63,7 +65,7 @@ function Footer() {
     useEffect(() => {
         if (context.songList[0].length > 0) {
             const song = context.songList ? context.songList[0][context.indexSong] : {};
-            fetch(`http://localhost:8000/api/song/${context.songList[0][context.indexSong].encodeId}`)
+            fetch(`${URL}song/${context.songList[0][context.indexSong].encodeId}`)
                 .then((res) => res.json())
                 .then((data) => {
                     footerImg.current.src = song.thumbnailM;
@@ -108,8 +110,7 @@ function Footer() {
                 randomList.pop();
                 context.currentSong(randomList[randomList.length - 1]);
 
-                const JSONIndex = JSON.stringify(randomList[randomList.length - 1]);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(randomList[randomList.length - 1]);
             } else {
                 context.currentSong(context.indexSong);
                 setRandomList([]);
@@ -119,13 +120,11 @@ function Footer() {
             if (context.indexSong > 0) {
                 context.currentSong(context.indexSong - 1);
 
-                const JSONIndex = JSON.stringify(context.indexSong - 1);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(context.indexSong - 1);
             } else {
                 context.currentSong(context.songList[0].length - 1);
 
-                const JSONIndex = JSON.stringify(context.songList[0].length - 1);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(context.songList[0].length - 1);
             }
         }
         audio.current.pause();
@@ -142,8 +141,7 @@ function Footer() {
                 setRandomList([...randomList, random]);
                 context.currentSong(random);
 
-                const JSONIndex = JSON.stringify(random);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(random);
             } else {
                 setRandomList([]);
             }
@@ -151,13 +149,11 @@ function Footer() {
             if (context.indexSong < context.songList[0].length - 1) {
                 context.currentSong(context.indexSong + 1);
 
-                const JSONIndex = JSON.stringify(context.indexSong + 1);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(context.indexSong + 1);
             } else {
                 context.currentSong(0);
 
-                const JSONIndex = JSON.stringify(0);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(0);
             }
         }
         audio.current.pause();
@@ -174,8 +170,7 @@ function Footer() {
                 setRandomList([...randomList, random]);
                 context.currentSong(random);
 
-                const JSONIndex = JSON.stringify(random);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(random);
             } else {
                 setRandomList([]);
             }
@@ -183,13 +178,11 @@ function Footer() {
             if (context.indexSong < context.songList[0].length - 1) {
                 context.currentSong(context.indexSong + 1);
 
-                const JSONIndex = JSON.stringify(context.indexSong + 1);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(context.indexSong + 1);
             } else {
                 context.currentSong(0);
 
-                const JSONIndex = JSON.stringify(0);
-                localStorage.setItem('currentIndex', JSONIndex);
+                FCSaveLocalIndex(0);
             }
         }
     };
@@ -240,8 +233,7 @@ function Footer() {
         context.currentSong(index);
         context.playSong();
 
-        const JSONIndex = JSON.stringify(index);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalIndex(index);
     };
 
     const [playlist, setPlaylist] = useState(false);

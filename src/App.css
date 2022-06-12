@@ -8,6 +8,7 @@
 :root {
     --default-bgcolor-nav: #231b2e;
     --default-width-nav: 240px;
+    --default-width-nav-m-t: 70px;
 
     --default-hieght-header: 70px;
 
@@ -19,6 +20,7 @@
     --color-default: #b1b1b1;
     --color-text-detail: #8b8791;
     --color-text-search: #fbfafc;
+    --color-text-hover: #c662ef;
     --white: #fff;
 
     --bgcolor-range: #ffffff66;
@@ -33,7 +35,6 @@ body {
 .App {
     font-family: 'Inter', sans-serif;
     position: relative;
-    width: 100%;
     z-index: 0;
 }
 

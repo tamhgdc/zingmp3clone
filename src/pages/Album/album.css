@@ -7,11 +7,10 @@
 .album__detail-img,
 .album__img {
     width: 300px;
-    height: 300px;
-    background-color: #ac9c9c91 !important;
     border-radius: 10px;
     text-align: center;
     position: fixed;
+    transition: all 0.2s ease-in-out;
 }
 
 .album__img {
@@ -47,6 +46,7 @@
     padding-left: 30px;
     margin-left: 300px;
     background-color: var(--default-bgcolor-body);
+    transition: all 0.2s ease-in-out;
 }
 
 .list-album-header {
@@ -86,18 +86,27 @@
 }
 
 .detail-title {
+    display: flex;
     color: var(--white);
     margin-bottom: 5px;
+    max-width: 200px;
+}
+
+.detail-title-name {
+    flex: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 200px;
+}
+
+.detail-artist {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
 
 .VIP {
-    position: absolute;
-    top: 0;
-    right: 20px;
     background-color: #ffd724;
     font-size: 10px;
     width: 25px;
@@ -128,7 +137,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: rgba(0, 0, 0, 0.116);
+    background-color: rgba(0, 0, 0, 33%);
     z-index: 2;
     pointer-events: auto !important;
     cursor: not-allowed !important;

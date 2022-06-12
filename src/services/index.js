@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { URL } from '~/url';
 
 function GetHomePage1() {
     const [datas, setDatas] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/home/1')
+        fetch(`${URL}home/1`)
             .then((res) => res.json())
             .then((data) => {
                 setDatas(data.data.items);
@@ -15,7 +16,7 @@ function GetHomePage1() {
 function GetHomePage2() {
     const [datas, setDatas] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/home/2')
+        fetch(`${URL}home/2`)
             .then((res) => res.json())
             .then((data) => {
                 setDatas(data.data.items);
@@ -27,7 +28,7 @@ function GetHomePage2() {
 function GetHomePage3() {
     const [datas, setDatas] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/home/3')
+        fetch(`${URL}home/3`)
             .then((res) => res.json())
             .then((data) => {
                 setDatas(data.data.items);
@@ -39,7 +40,7 @@ function GetHomePage3() {
 function GetChart() {
     const [chart, setChart] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/chart-home')
+        fetch(`${URL}chart-home`)
             .then((res) => res.json())
             .then((data) => {
                 setChart(data.data);
@@ -51,7 +52,7 @@ function GetChart() {
 function GetNewMusic() {
     const [newMusic, setNewMusic] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:8000/api/getNewReleaseChart')
+        fetch(`${URL}getNewReleaseChart`)
             .then((res) => res.json())
             .then((data) => {
                 setNewMusic(data.data);
@@ -60,4 +61,16 @@ function GetNewMusic() {
     return newMusic;
 }
 
-export { GetHomePage1, GetHomePage2, GetHomePage3, GetChart, GetNewMusic };
+function GetTop100() {
+    const [top100, setTop100] = useState([]);
+    useEffect(() => {
+        fetch(`${URL}getTop100`)
+            .then((res) => res.json())
+            .then((data) => {
+                setTop100(data.data);
+            });
+    }, []);
+    return top100;
+}
+
+export { GetHomePage1, GetHomePage2, GetHomePage3, GetChart, GetNewMusic, GetTop100 };

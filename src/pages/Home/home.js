@@ -1,7 +1,11 @@
 import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import renderSinger from '~/component/FCRenderSinger';
+import routes from '~/config/routes';
 import { GetHomePage1, GetHomePage2, GetHomePage3 } from '~/services';
 import Banner from './Banner/banner';
+
+import './home.css';
 
 function Home() {
     // eslint-disable-next-line no-unused-vars
@@ -26,117 +30,118 @@ function Home() {
         return (
             <>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
-                <div className="row sm-gutter boxBanner">
-                    <div className="col l_2_4 m_6 c_12 ">
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
                 </div>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
-                <div className="row sm-gutter boxBanner">
-                    <div className="col l_2_4 m_6 c_12 ">
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
                 </div>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
-                <div className="row sm-gutter boxBanner">
-                    <div className="col l_2_4 m_6 c_12 ">
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_6 c_12 ">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
                         <div className="bannerImg loading"></div>
-                        <div
-                            className="songName loading"
-                            style={{ width: '100%', marginTop: '10px', height: '25px' }}
-                        ></div>
+                        <div className="songName loading"></div>
+                    </div>
+                </div>
+                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                </div>
+                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
                     </div>
                 </div>
             </>
@@ -151,10 +156,13 @@ function Home() {
                         return (
                             <div key={index}>
                                 <h2 className="pageTitle">{item.title}</h2>
-                                <div className="row sm-gutter boxBanner">
+                                <div className="row boxBanner">
                                     {item.items.slice(0, 5).map((items, indexx) => {
                                         return (
-                                            <div className="col l_2_4 m_6 c_12 " key={indexx}>
+                                            <div
+                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
+                                                key={indexx}
+                                            >
                                                 <div className="bannerImg">
                                                     <div className="btnImgList">
                                                         <img className="imgList " src={items.thumbnail} alt="" />
@@ -206,10 +214,13 @@ function Home() {
                         return (
                             <div key={index}>
                                 <h2 className="pageTitle">{item.title}</h2>
-                                <div className="row sm-gutter boxBanner">
+                                <div className="row boxBanner">
                                     {item.items.slice(0, 5).map((items, indexx) => {
                                         return (
-                                            <div className="col l_2_4 m_6 c_12 " key={indexx}>
+                                            <div
+                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
+                                                key={indexx}
+                                            >
                                                 <div className="bannerImg">
                                                     <div className="btnImgList">
                                                         <img className="imgList " src={items.thumbnail} alt="" />
@@ -248,7 +259,7 @@ function Home() {
                                                     </Link>
                                                 </div>
                                                 <h3 className="songName">{items.title}</h3>
-                                                <h5 className="songerName">{items.sortDescription}</h5>
+                                                {renderSinger(items.artists)}
                                             </div>
                                         );
                                     })}
@@ -257,15 +268,22 @@ function Home() {
                         );
                     })}
 
-                {dataPage3Items.length > 0 &&
+                {dataPage3Items !== undefined &&
+                    dataPage3Items.length !== 0 &&
                     dataPage3Items.map((item, index) => {
                         return (
-                            <div key={index}>
+                            <div key={index} style={{ position: 'relative' }}>
+                                <Link to={routes.top100} className="see-all">
+                                    <span>TẤT CẢ</span> <i className="icon see-all-icon ic-go-right"></i>
+                                </Link>
                                 <h2 className="pageTitle">{item.title}</h2>
-                                <div className="row sm-gutter boxBanner">
+                                <div className="row boxBanner">
                                     {item.items.slice(0, 5).map((items, indexx) => {
                                         return (
-                                            <div className="col l_2_4 m_6 c_12 " key={indexx}>
+                                            <div
+                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
+                                                key={indexx}
+                                            >
                                                 <div className="bannerImg">
                                                     <div className="btnImgList">
                                                         <img className="imgList " src={items.thumbnail} alt="" />
@@ -304,7 +322,7 @@ function Home() {
                                                     </Link>
                                                 </div>
                                                 <h3 className="songName">{items.title}</h3>
-                                                <h5 className="songerName">{items.sortDescription}</h5>
+                                                {renderSinger(items.artists)}
                                             </div>
                                         );
                                     })}
@@ -320,7 +338,7 @@ function Home() {
         <>
             <div className="grid wide">
                 <Banner />
-
+                {/* {loading()} */}
                 <div className="root">{dataPage1Items.length > 0 ? render() : loading()}</div>
             </div>
         </>

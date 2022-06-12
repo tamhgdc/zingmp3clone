@@ -9,6 +9,11 @@
     width: calc(100% - var(--default-width-nav));
     padding: 0 60px;
     background-color: var(--default-bgcolor-body);
+    transition: all 0.3s ease-in-out;
+}
+
+.logo-m {
+    display: none;
 }
 
 .btnHeader {

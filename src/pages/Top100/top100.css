@@ -1,0 +1,22 @@
+.top100 {
+    margin-top: 200px;
+    position: relative;
+}
+
+.top100 .new-music-bg,
+.top100 .bg-alpha,
+.top100 .bg-alpha-1 {
+    top: -12%;
+    height: 280px;
+}
+
+.top100 .new-music-bg {
+    background: url('../../images/banner-100.33cafe6b.png') top/cover no-repeat;
+}
+
+.svg-top100 {
+    z-index: 1;
+    position: absolute;
+    top: -10%;
+    left: 20%;
+}

@@ -8,6 +8,7 @@ const routes = {
     follow: '/follow',
     mymusic: '/mymusic',
     newmusic: '/newmusic',
+    top100: '/top100',
 };
 
 export default routes;

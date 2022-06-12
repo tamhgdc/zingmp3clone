@@ -6,22 +6,30 @@
     left: var(--default-width-nav);
     color: var(--white);
     background-color: var(--default-bgcolor-body);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
 }
 
 .boxBanner {
     width: 100%;
     position: relative;
+    flex-wrap: nowrap;
+    overflow-x: overlay;
+}
+
+.boxBanner::-webkit-scrollbar {
+    height: 0;
 }
 
 .pageTitle {
     font-size: 20px;
-    margin: 20px 0 25px 0;
+    margin-bottom: 25px;
 }
 
 .bannerImg,
 .btnImgList {
-    width: 180px;
-    height: 180px;
+    width: 100%;
+    min-height: 120px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
@@ -29,8 +37,7 @@
 }
 
 .imgList {
-    width: 180px;
-    height: 180px;
+    width: 100%;
     border-radius: 10px;
     transition: all 0.4s;
 }
@@ -83,6 +90,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 10px 0;
+    width: 100%;
+    margin-top: 10px;
+    height: 25px;
 }
 
 .songerName {
@@ -92,4 +102,5 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
+    width: 100%;
 }

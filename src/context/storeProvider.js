@@ -1,32 +1,35 @@
-import Context from "./context";
-import { useState } from "react";
+import Context from './context';
+import { useState } from 'react';
 
-
-function StoreProvider({children}) {
-    const [play, setPlay] = useState(false)
-    const [songList, setSongList] = useState([localStorage.getItem("songList") ? JSON.parse(localStorage.getItem("songList")) : []])
-    const [indexSong, setIndexSong] = useState(localStorage.getItem("currentIndex") ? JSON.parse(localStorage.getItem("currentIndex")) : null)
-    const [inputSearch, setInputSearch] = useState('')
+function StoreProvider({ children }) {
+    const [play, setPlay] = useState(false);
+    const [songList, setSongList] = useState([
+        localStorage.getItem('songList') ? JSON.parse(localStorage.getItem('songList')) : [],
+    ]);
+    const [indexSong, setIndexSong] = useState(
+        localStorage.getItem('currentIndex') ? JSON.parse(localStorage.getItem('currentIndex')) : null,
+    );
+    const [inputSearch, setInputSearch] = useState('');
 
     const togglePlay = () => {
         setPlay(play === false ? true : false);
-    }
+    };
 
-    const playSong = ()=>{
+    const playSong = () => {
         setPlay(true);
-    }
+    };
 
-    const pauseSong = ()=>{
+    const pauseSong = () => {
         setPlay(false);
-    }
+    };
 
     const addSongList = (song) => {
         setSongList([song]);
-    }
+    };
 
     const currentSong = (index) => {
         setIndexSong(index);
-    }
+    };
 
     const data = {
         play,
@@ -38,13 +41,9 @@ function StoreProvider({children}) {
         addSongList,
         currentSong,
         inputSearch,
-        setInputSearch
-    }
-    return (
-        <Context.Provider  value={data}>
-            {children}
-        </Context.Provider>
-    )
+        setInputSearch,
+    };
+    return <Context.Provider value={data}>{children}</Context.Provider>;
 }
 
 export default StoreProvider;

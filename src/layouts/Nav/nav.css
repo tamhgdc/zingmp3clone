@@ -1,6 +1,7 @@
 .nav,
 .navFull {
     width: var(--default-width-nav);
+    height: calc(100vh - var(--default-height-footer));
     bottom: var(--default-height-footer);
     background-color: var(--default-bgcolor-nav);
     display: flex;
@@ -9,11 +10,12 @@
     left: 0;
     position: fixed;
     z-index: 2;
-    transition: bottom 0.2s ease-in-out;
+    transition: bottom 0.2s ease-in-out, width 0.2s ease-in-out;
 }
 
 .navFull {
     bottom: 0;
+    height: 100vh;
 }
 
 .logo {
@@ -27,8 +29,17 @@
 .logoImg {
     width: 120px;
     position: absolute;
+    margin-left: 25px;
+    margin-top: 14px;
+}
+
+.logoImgMb {
+    width: 50px;
+    position: absolute;
+    left: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    display: none;
 }
 
 .navList {
@@ -71,7 +82,7 @@
     width: 100%;
 }
 
-.iconHover {
+i.iconHover {
     display: none;
     position: absolute;
     right: 25px;

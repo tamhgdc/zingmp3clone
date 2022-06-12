@@ -4,6 +4,8 @@ import Context from '~/context/context';
 import secondsToHms from '~/component/FCTime';
 import { GetNewMusic } from '~/services';
 import './newMusic.css';
+import FCSaveLocalList from '~/component/FCSaveLocalList';
+import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 
 function NewMusic() {
     const context = useContext(Context);
@@ -14,10 +16,8 @@ function NewMusic() {
         context.playSong();
         context.currentSong(index);
 
-        const JSONSongList = JSON.stringify(data.items);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(index);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(data.items);
+        FCSaveLocalIndex(index);
     };
 
     const handlePlayAll = () => {
@@ -25,10 +25,8 @@ function NewMusic() {
         context.playSong();
         context.currentSong(0);
 
-        const JSONSongList = JSON.stringify(data.items);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(0);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(data.items);
+        FCSaveLocalIndex(0);
     };
 
     return (
@@ -36,8 +34,8 @@ function NewMusic() {
             {data.length !== 0 && (
                 <>
                     <div className="new-music-bg"></div>
-                    <div class="bg-alpha"></div>
-                    <div class="bg-alpha-1"></div>
+                    <div className="bg-alpha"></div>
+                    <div className="bg-alpha-1"></div>
                 </>
             )}
             <div className="new-music__header">

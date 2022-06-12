@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { URL } from '~/url';
 
 import './banner.css';
 
@@ -9,7 +10,7 @@ function Banner() {
     const [dataPage1, setDataPage1] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/home/1')
+        fetch(`${URL}home/1`)
             .then((res) => res.json())
             .then((data) => {
                 setDataPage1(data.data.items[0].items);
@@ -77,12 +78,12 @@ function Banner() {
                     return right;
                 }
             });
-        }, 5000);
+        }, 15000000);
     }, []);
 
     const loadding = () => {
         return (
-            <div className="row sm-gutter banner">
+            <div className="row sm_gutter banner">
                 <div className="col l_4 btnImgBanner imgLeft loading"></div>
                 <div className="col l_4 btnImgBanner imgSelected loading"></div>
                 <div className="col l_4 btnImgBanner imgRight loading"></div>
@@ -114,12 +115,12 @@ function Banner() {
                             key={index}
                             className={
                                 index === imgLeft
-                                    ? 'col l_4 btnImgBanner imgLeft'
+                                    ? 'col l_4 m_4 c_6 btnImgBanner imgLeft'
                                     : index === imgSelected
-                                    ? 'col l_4 btnImgBanner imgSelected'
+                                    ? 'col l_4 m_4 c_6 btnImgBanner imgSelected'
                                     : index === imgRight
-                                    ? 'col l_4 btnImgBanner imgRight'
-                                    : 'col l_4 btnImgBanner'
+                                    ? 'col l_4 m_4 c_6 btnImgBanner imgRight'
+                                    : 'col l_4 m_4 c_6 btnImgBanner'
                             }
                         >
                             <img className="imgBanner " src={item.banner} alt="" />
@@ -130,7 +131,7 @@ function Banner() {
         );
     };
 
-    return <div className="row sm-gutter banner">{dataPage1.length !== 0 ? renderBanner() : loadding()}</div>;
+    return <div className="row sm_gutter banner">{dataPage1.length !== 0 ? renderBanner() : loadding()}</div>;
 }
 
 export default Banner;

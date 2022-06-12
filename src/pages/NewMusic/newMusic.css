@@ -9,8 +9,6 @@
     background: url('../../images/new-release-bg.73d8f976.jpg') top/cover no-repeat;
     filter: grayscale(1);
     top: -30px;
-    left: -50px;
-    width: 110%;
 }
 
 .bg-alpha {
@@ -18,8 +16,6 @@
     width: 100%;
     height: 380px;
     top: -30px;
-    left: -50px;
-    width: 110%;
     z-index: 0;
     background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 37%, var(--default-bgcolor-body));
 }
@@ -30,8 +26,6 @@
     width: 100%;
     height: 380px;
     top: -30px;
-    left: -50px;
-    width: 110%;
     z-index: 0;
     background-image: linear-gradient(180deg, var(--default-bgcolor-body), var(--default-bgcolor-body));
 }

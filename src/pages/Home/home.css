@@ -1,0 +1,28 @@
+.render-album-item {
+    margin-bottom: 50px;
+    cursor: pointer;
+}
+
+.songName:hover {
+    color: var(--color-text-hover);
+    text-decoration: underline;
+}
+
+.see-all {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    font-size: 14px;
+    color: var(--color-text-detail);
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.see-all:hover {
+    color: var(--color-text-hover);
+}
+
+.see-all .see-all-icon {
+    font-size: 16px;
+}

@@ -3,6 +3,9 @@ import { useContext, useEffect, useState } from 'react';
 import Context from '~/context/context';
 import secondsToHms from '~/component/FCTime';
 import './album.css';
+import FCSaveLocalList from '~/component/FCSaveLocalList';
+import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
+import { URL } from '~/url';
 
 function Album() {
     const context = useContext(Context);
@@ -17,7 +20,7 @@ function Album() {
     });
 
     useEffect(() => {
-        fetch(`http://localhost:8000/api/playlist/${document.URL.slice(-8)}`)
+        fetch(`${URL}playlist/${document.URL.slice(-8)}`)
             .then((res) => res.json())
             .then((data) => {
                 document.title = data.data.title;
@@ -25,17 +28,14 @@ function Album() {
                 setDatas(data.data);
             });
     }, []);
-    console.log(datas);
 
     const handleClick = (index) => {
         context.addSongList(dataSong.items);
         context.playSong();
         context.currentSong(index);
 
-        const JSONSongList = JSON.stringify(dataSong.items);
-        localStorage.setItem('songList', JSONSongList);
-        const JSONIndex = JSON.stringify(index);
-        localStorage.setItem('currentIndex', JSONIndex);
+        FCSaveLocalList(dataSong.items);
+        FCSaveLocalIndex(index);
     };
 
     const loading = () => {
@@ -181,10 +181,10 @@ function Album() {
                                     </div>
                                     <div className="detail">
                                         <div className="detail-title">
-                                            <span>{item.title}</span>
+                                            <span className="detail-title-name">{item.title}</span>
                                             {item.streamingStatus === 2 && <span className="VIP">VIP</span>}
                                         </div>
-                                        <span>{item.artistsNames}</span>
+                                        <span className="detail-artist">{item.artistsNames}</span>
                                     </div>
                                 </div>
                                 <div className="list-albums-album">

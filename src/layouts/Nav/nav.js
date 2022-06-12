@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import config from '~/config';
 import Context from '~/context/context';
@@ -47,7 +47,7 @@ function Nav() {
         },
         {
             name: 'Top 100',
-            link: '#',
+            link: '/top100',
             icon: 'icon  ic-24-Top100Tab',
         },
         {
@@ -59,14 +59,46 @@ function Nav() {
 
     const context = useContext(Context);
 
+    const [showNavMobile, setShowNavMobile] = useState(false);
+    const nav = useRef();
+    const handleShowNav = () => {
+        setShowNavMobile(!showNavMobile);
+    };
+
     return (
-        <nav className={context.songList[0].length > 0 ? 'nav' : 'navFull'}>
+        <nav
+            ref={nav}
+            className={
+                context.songList[0].length > 0
+                    ? showNavMobile
+                        ? 'nav show-nav'
+                        : 'nav'
+                    : showNavMobile
+                    ? 'navFull show-nav'
+                    : 'navFull'
+            }
+        >
             <div className="logo" onClick={() => navigation(config.routes.home)}>
                 <img
                     className="logoImg"
                     src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
                     alt="Zing"
                 />
+                {showNavMobile ? (
+                    <img
+                        className="logoImgMb"
+                        style={{ width: '100px', marginLeft: '-40px' }}
+                        src="https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/backgrounds/logo-dark.svg"
+                        alt="Zing"
+                    />
+                ) : (
+                    <img
+                        className="logoImgMb"
+                        style={{ width: '30px' }}
+                        src="https://static-zmp3.zmdcdn.me/skins/zmp3-v5.2/images/icon_zing_mp3_60.png"
+                        alt="Zing"
+                    />
+                )}
             </div>
             <div className="navMain">
                 <ul className="navList">
@@ -165,6 +197,15 @@ function Nav() {
                 <i className="icon  ic-add"></i>
                 <span className="navTitle">Tạo playlist mới</span>
             </div>
+            {showNavMobile ? (
+                <div onClick={handleShowNav} className="btnBanner show-nav-btn right nextBtnBanner ">
+                    <i className="icon ic-go-left"></i>
+                </div>
+            ) : (
+                <div onClick={handleShowNav} className="btnBanner show-nav-btn nextBtnBanner ">
+                    <i className="icon ic-go-right"></i>
+                </div>
+            )}
         </nav>
     );
 }
