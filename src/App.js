@@ -9,6 +9,7 @@ import Header from './layouts/Header/header';
 import Main from './pages';
 import Footer from './layouts/Footer/footer';
 import { useContext } from 'react';
+import NavMobile from './layouts/NavMobile/navMobile';
 
 function App() {
     const context = useContext(Context);
@@ -19,6 +20,7 @@ function App() {
             <Header />
             <Main />
             {data > 0 ? <Footer /> : null}
+            <NavMobile />
         </div>
     );
 }

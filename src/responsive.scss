@@ -1,5 +1,5 @@
 /* Mobile: width < 740px */
-@media only screen and (max-width: 739px) {
+@media only screen and (max-width: 736px) {
     .App {
         .nav,
         .btnHeader {
@@ -9,7 +9,7 @@
         .main {
             left: 0;
             width: 100%;
-            padding: 100px 20px;
+            padding: 100px 20px 120px;
         }
 
         .header {
@@ -84,6 +84,11 @@
             font-size: 16px;
         }
 
+        .footer {
+            height: 50px;
+            bottom: 59px;
+        }
+
         .footerRight,
         .footer__control .range,
         .btnControl:nth-child(1),
@@ -97,14 +102,48 @@
         }
 
         .footerImg {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .footer__img-play {
+            background-size: 15px;
+        }
+
+        .top100 {
+            margin-top: 0;
+        }
+
+        .svg-top100,
+        .new-music-bg,
+        .bg-alpha,
+        .bg-alpha-1,
+        .zing-chart .list-albums-album,
+        .zing-chart-canvas {
+            display: none;
+        }
+
+        .zingchart__top,
+        .new-music__top {
+            width: 80px;
+        }
+
+        .navMobile {
+            display: flex;
+        }
+
+        .banner {
+            height: 100px;
+        }
+
+        .new-music .list-albums-album {
+            display: none;
         }
     }
 }
 
-/* Tablet: width >= 740px and width < 1024px */
-@media only screen and (min-width: 740px) and (max-width: 1024px) {
+/* Tablet: width >= 737px and width < 1024px */
+@media only screen and (min-width: 737px) and (max-width: 1024px) {
     .App {
         .nav,
         .navFull {
@@ -261,6 +300,11 @@
 
         .listAlbum {
             padding-left: 0;
+        }
+
+        .boxBanner {
+            flex-wrap: nowrap;
+            overflow-x: overlay;
         }
     }
 

@@ -29,7 +29,7 @@ function Top100() {
                             <div className="row boxBanner">
                                 {item.items.map((items, indexx) => {
                                     return (
-                                        <div className="col l_2_4 m_3 c_12 render-album-item " key={indexx}>
+                                        <div className="col l_2_4 m_3 c_4 render-album-item " key={indexx}>
                                             <div className="bannerImg">
                                                 <div className="btnImgList">
                                                     <img className="imgList " src={items.thumbnail} alt="" />

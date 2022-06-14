@@ -218,7 +218,7 @@ function ZingChart() {
     const renderChart = () => {
         return (
             <div className="zing-chart">
-                <div style={{ width: '100%', height: '400px' }}>
+                <div className="zing-chart-canvas">
                     <Line
                         data={state}
                         options={{

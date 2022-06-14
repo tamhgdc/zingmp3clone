@@ -13,8 +13,6 @@
 .boxBanner {
     width: 100%;
     position: relative;
-    flex-wrap: nowrap;
-    overflow-x: overlay;
 }
 
 .boxBanner::-webkit-scrollbar {

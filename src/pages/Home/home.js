@@ -31,115 +31,115 @@ function Home() {
             <>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
                 <div className="row sm_gutter boxBanner">
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                </div>
-                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
-                <div className="row sm_gutter boxBanner">
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
                 </div>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
                 <div className="row sm_gutter boxBanner">
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                </div>
-                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
-                <div className="row sm_gutter boxBanner">
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
-                        <div className="bannerImg loading"></div>
-                        <div className="songName loading"></div>
-                    </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
                 </div>
                 <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
                 <div className="row sm_gutter boxBanner">
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
-                    <div className="col l_2_4 m_3 c_6 render-album-item ">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                </div>
+                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                </div>
+                <div className="pageTitle loading" style={{ width: '30%', marginTop: '10px', height: '25px' }}></div>
+                <div className="row sm_gutter boxBanner">
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
+                        <div className="bannerImg loading"></div>
+                        <div className="songName loading"></div>
+                    </div>
+                    <div className="col l_2_4 m_3 c_4 render-album-item ">
                         <div className="bannerImg loading"></div>
                         <div className="songName loading"></div>
                     </div>
@@ -160,7 +160,7 @@ function Home() {
                                     {item.items.slice(0, 5).map((items, indexx) => {
                                         return (
                                             <div
-                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
+                                                className="col sm_gutter l_2_4 m_3 c_4 render-album-item "
                                                 key={indexx}
                                             >
                                                 <div className="bannerImg">
@@ -218,7 +218,7 @@ function Home() {
                                     {item.items.slice(0, 5).map((items, indexx) => {
                                         return (
                                             <div
-                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
+                                                className="col sm_gutter l_2_4 m_3 c_4 render-album-item "
                                                 key={indexx}
                                             >
                                                 <div className="bannerImg">
@@ -268,68 +268,68 @@ function Home() {
                         );
                     })}
 
-                {dataPage3Items !== undefined &&
-                    dataPage3Items.length !== 0 &&
-                    dataPage3Items.map((item, index) => {
-                        return (
-                            <div key={index} style={{ position: 'relative' }}>
-                                <Link to={routes.top100} className="see-all">
-                                    <span>TẤT CẢ</span> <i className="icon see-all-icon ic-go-right"></i>
-                                </Link>
-                                <h2 className="pageTitle">{item.title}</h2>
-                                <div className="row boxBanner">
-                                    {item.items.slice(0, 5).map((items, indexx) => {
-                                        return (
-                                            <div
-                                                className="col sm_gutter l_2_4 m_3 c_6 render-album-item "
-                                                key={indexx}
-                                            >
-                                                <div className="bannerImg">
-                                                    <div className="btnImgList">
-                                                        <img className="imgList " src={items.thumbnail} alt="" />
-                                                    </div>
-                                                    <Link
-                                                        to={`/detail/album/${items.encodeId}`}
-                                                        className="playSongMain"
-                                                    >
-                                                        <div className="btnLike">
-                                                            <i
-                                                                ref={dislike}
-                                                                className={
-                                                                    indexLike !== indexx
-                                                                        ? 'icon mainListLike ic-like'
-                                                                        : 'icon mainListLike ic-like hidden'
-                                                                }
-                                                                onClick={() => handleLike(indexx)}
-                                                            ></i>
-                                                            <i
-                                                                ref={like}
-                                                                className={
-                                                                    indexLike === indexx
-                                                                        ? 'icon mainListFullLike ic-like-full'
-                                                                        : 'icon mainListFullLike ic-like-full hidden'
-                                                                }
-                                                            ></i>
-                                                        </div>
+                {dataPage3Items !== undefined && dataPage3Items.length !== 0
+                    ? dataPage3Items.map((item, index) => {
+                          return (
+                              <div key={index} style={{ position: 'relative' }}>
+                                  <Link to={routes.top100} className="see-all">
+                                      <span>TẤT CẢ</span> <i className="icon see-all-icon ic-go-right"></i>
+                                  </Link>
+                                  <h2 className="pageTitle">{item.title}</h2>
+                                  <div className="row boxBanner">
+                                      {item.items.slice(0, 5).map((items, indexx) => {
+                                          return (
+                                              <div
+                                                  className="col sm_gutter l_2_4 m_3 c_4 render-album-item "
+                                                  key={indexx}
+                                              >
+                                                  <div className="bannerImg">
+                                                      <div className="btnImgList">
+                                                          <img className="imgList " src={items.thumbnail} alt="" />
+                                                      </div>
+                                                      <Link
+                                                          to={`/detail/album/${items.encodeId}`}
+                                                          className="playSongMain"
+                                                      >
+                                                          <div className="btnLike">
+                                                              <i
+                                                                  ref={dislike}
+                                                                  className={
+                                                                      indexLike !== indexx
+                                                                          ? 'icon mainListLike ic-like'
+                                                                          : 'icon mainListLike ic-like hidden'
+                                                                  }
+                                                                  onClick={() => handleLike(indexx)}
+                                                              ></i>
+                                                              <i
+                                                                  ref={like}
+                                                                  className={
+                                                                      indexLike === indexx
+                                                                          ? 'icon mainListFullLike ic-like-full'
+                                                                          : 'icon mainListFullLike ic-like-full hidden'
+                                                                  }
+                                                              ></i>
+                                                          </div>
 
-                                                        <div className="linkAlbum">
-                                                            <i className="icon mainListPlay ic-play-circle-outline"></i>
-                                                        </div>
-                                                        <div className="btnLike songMore">
-                                                            <i className="icon mainListMore ic-more"></i>
-                                                            <div className="songMoreDetail"></div>
-                                                        </div>
-                                                    </Link>
-                                                </div>
-                                                <h3 className="songName">{items.title}</h3>
-                                                {renderSinger(items.artists)}
-                                            </div>
-                                        );
-                                    })}
-                                </div>
-                            </div>
-                        );
-                    })}
+                                                          <div className="linkAlbum">
+                                                              <i className="icon mainListPlay ic-play-circle-outline"></i>
+                                                          </div>
+                                                          <div className="btnLike songMore">
+                                                              <i className="icon mainListMore ic-more"></i>
+                                                              <div className="songMoreDetail"></div>
+                                                          </div>
+                                                      </Link>
+                                                  </div>
+                                                  <h3 className="songName">{items.title}</h3>
+                                                  {renderSinger(items.artists)}
+                                              </div>
+                                          );
+                                      })}
+                                  </div>
+                              </div>
+                          );
+                      })
+                    : null}
             </>
         );
     };

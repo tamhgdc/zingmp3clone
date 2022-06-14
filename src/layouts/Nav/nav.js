@@ -1,38 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import navTop from '~/component/NavTopData';
 import config from '~/config';
 import Context from '~/context/context';
 import './nav.css';
 function Nav() {
     const navigation = useNavigate();
-
-    const navTop = [
-        {
-            name: 'Cá Nhân',
-            link: config.routes.mymusic,
-            icon: 'icon ic-24-LibraryTab',
-        },
-        {
-            name: 'Khám Phá',
-            link: config.routes.home,
-            icon: 'icon ic-24-HomeTab',
-        },
-        {
-            name: '#zingchart',
-            link: config.routes.zingchart,
-            icon: 'icon ic-24-ChartTab',
-        },
-        {
-            name: 'Radio',
-            link: config.routes.radio,
-            icon: 'icon ic-24-RadioTab',
-        },
-        {
-            name: 'Theo Dõi',
-            link: config.routes.follow,
-            icon: 'icon ic-24-FeedTab',
-        },
-    ];
 
     const navScroll = [
         {

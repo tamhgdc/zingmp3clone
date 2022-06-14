@@ -1,0 +1,36 @@
+.navMobile {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    bottom: 0;
+    z-index: 999;
+}
+
+.navMobile__item {
+    height: 100%;
+    width: 100%;
+    background-color: var(--default-bgcolor-footer);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+    text-decoration: none;
+    color: var(--white);
+
+    &.active {
+        background-color: rgb(58, 51, 68);
+    }
+
+    .navMobile__item-link {
+        color: var(--white);
+    }
+}
+
+.navMobile__item.active .navMobile__item-link {
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
