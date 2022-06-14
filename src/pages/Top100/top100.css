@@ -6,7 +6,7 @@
 .top100 .new-music-bg,
 .top100 .bg-alpha,
 .top100 .bg-alpha-1 {
-    top: -12%;
+    top: -8%;
     height: 280px;
 }
 
@@ -17,6 +17,6 @@
 .svg-top100 {
     z-index: 1;
     position: absolute;
-    top: -10%;
+    top: -6%;
     left: 20%;
 }
