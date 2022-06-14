@@ -8,6 +8,7 @@ import Banner from './Banner/banner';
 import './home.css';
 
 function Home() {
+    console.log(process.env);
     // eslint-disable-next-line no-unused-vars
     const [banner, home, recent, ...dataPage1Items] = GetHomePage1();
     // eslint-disable-next-line no-unused-vars
