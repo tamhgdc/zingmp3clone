@@ -80,7 +80,7 @@ function Footer() {
                 .catch((err) => {
                     rangeInputSong.current.style.backgroundSize = 0;
                     setValue(0);
-                    // alert('Lỗi khi tải bài hát')
+                    alert('Lỗi khi tải bài hát. Nguyên nhân do dữ liệu!');
                     audio.current.src = '';
                     context.pauseSong();
                     audio.current.pause();
