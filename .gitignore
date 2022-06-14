@@ -10,7 +10,6 @@
 
 # production
 /build
-/src/url
 
 # misc
 .DS_Store
