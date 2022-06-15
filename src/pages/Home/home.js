@@ -1,13 +1,16 @@
-import { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useRef, useState, useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import renderSinger from '~/component/FCRenderSinger';
 import routes from '~/config/routes';
+import Context from '~/context/context';
 import { GetHomePage1, GetHomePage2, GetHomePage3 } from '~/services';
 import Banner from './Banner/banner';
 
 import './home.css';
 
 function Home() {
+    const context = useContext(Context);
+    const navigate = useNavigate();
     // eslint-disable-next-line no-unused-vars
     const [banner, home, recent, ...dataPage1Items] = GetHomePage1();
     // eslint-disable-next-line no-unused-vars
@@ -22,9 +25,16 @@ function Home() {
 
     const like = useRef(null);
     const dislike = useRef(null);
-    const handleLike = (indexx) => {
-        setIndexLike(indexx);
+    const handleLike = (encodeId) => {
+        context.setIndexLike((prev) => {
+            if (prev.includes(encodeId)) {
+                return prev.filter((item) => item !== encodeId);
+            }
+            return [...prev, encodeId];
+        });
     };
+
+    console.log(context.indexLike);
 
     const loading = () => {
         return (
@@ -167,38 +177,47 @@ function Home() {
                                                     <div className="btnImgList">
                                                         <img className="imgList " src={items.thumbnail} alt="" />
                                                     </div>
-                                                    <Link
-                                                        to={`/detail/album/${items.encodeId}`}
+                                                    <div
+                                                        // to={`/detail/album/${items.encodeId}`}
                                                         className="playSongMain"
-                                                    >
+                                                        onClick={() => navigate(`/detail/album/${items.encodeId}`)}
+                                                    ></div>
+                                                    <div className="play-song-control">
                                                         <div className="btnLike">
                                                             <i
                                                                 ref={dislike}
                                                                 className={
-                                                                    indexLike !== indexx
-                                                                        ? 'icon mainListLike ic-like'
-                                                                        : 'icon mainListLike ic-like hidden'
+                                                                    context.indexLike.length > 0
+                                                                        ? context.indexLike[indexx - 1] !== indexx
+                                                                            ? 'icon mainListLike ic-like'
+                                                                            : 'icon mainListLike ic-like hidden'
+                                                                        : 'icon mainListLike ic-like'
                                                                 }
-                                                                onClick={() => handleLike(indexx)}
+                                                                onClick={() => handleLike(items.encodeId, indexx)}
                                                             ></i>
                                                             <i
                                                                 ref={like}
                                                                 className={
-                                                                    indexLike === indexx
-                                                                        ? 'icon mainListFullLike ic-like-full'
+                                                                    context.indexLike.length > 0
+                                                                        ? context.indexLike[indexx - 1] === indexx
+                                                                            ? 'icon mainListFullLike ic-like-full'
+                                                                            : 'icon mainListFullLike ic-like-full hidden'
                                                                         : 'icon mainListFullLike ic-like-full hidden'
                                                                 }
                                                             ></i>
                                                         </div>
 
-                                                        <div className="linkAlbum">
+                                                        <div
+                                                            className="linkAlbum"
+                                                            onClick={() => navigate(`/detail/album/${items.encodeId}`)}
+                                                        >
                                                             <i className="icon mainListPlay ic-play-circle-outline"></i>
                                                         </div>
                                                         <div className="btnLike songMore">
                                                             <i className="icon mainListMore ic-more"></i>
                                                             <div className="songMoreDetail"></div>
                                                         </div>
-                                                    </Link>
+                                                    </div>
                                                 </div>
                                                 <h3 className="songName">{items.title}</h3>
                                                 <h5 className="songerName">{items.sortDescription}</h5>
