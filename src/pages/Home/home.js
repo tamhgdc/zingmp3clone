@@ -16,9 +16,10 @@ function Home() {
     // eslint-disable-next-line no-unused-vars
     const [radio, ...dataPage2Items] = GetHomePage2();
     // eslint-disable-next-line no-unused-vars
-    const [chart, week, slide, album, event] = GetHomePage3();
-    const dataPage3Items = [];
-    dataPage3Items.push(album);
+    const [chart, week, slide, ...dataPage3Items] = GetHomePage3();
+    console.log(dataPage3Items[0]);
+    // const dataPage3Items = [];
+    // dataPage3Items.push(album);
     const [indexLike, setIndexLike] = useState();
 
     document.title = 'Zing MP3 | Nghe tải nhạc chất lượng cao trên desktop, mobile và TV';
@@ -33,8 +34,6 @@ function Home() {
             return [...prev, encodeId];
         });
     };
-
-    console.log(context.indexLike);
 
     const loading = () => {
         return (
@@ -298,7 +297,7 @@ function Home() {
                     })}
 
                 {dataPage3Items !== undefined && dataPage3Items.length !== 0
-                    ? dataPage3Items.map((item, index) => {
+                    ? [dataPage3Items[0]].map((item, index) => {
                           return (
                               <div key={index} style={{ position: 'relative' }}>
                                   <Link to={routes.top100} className="see-all">
