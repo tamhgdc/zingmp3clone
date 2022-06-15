@@ -11,6 +11,8 @@ function StoreProvider({ children }) {
     );
     const [inputSearch, setInputSearch] = useState('');
 
+    const [indexLike, setIndexLike] = useState([]);
+
     const togglePlay = () => {
         setPlay(play === false ? true : false);
     };
@@ -42,6 +44,8 @@ function StoreProvider({ children }) {
         currentSong,
         inputSearch,
         setInputSearch,
+        indexLike,
+        setIndexLike,
     };
     return <Context.Provider value={data}>{children}</Context.Provider>;
 }
