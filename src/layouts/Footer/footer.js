@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 
 import Context from '~/context/context';
 import secondsToHms from '~/component/FCTime';
@@ -66,6 +65,7 @@ function Footer() {
     useEffect(() => {
         if (context.songList[0].length > 0) {
             const song = context.songList ? context.songList[0][context.indexSong] : {};
+            audio.current.pause();
             fetch(`${URL}song/${context.songList[0][context.indexSong].encodeId}`)
                 .then((res) => res.json())
                 .then((data) => {
@@ -73,8 +73,8 @@ function Footer() {
                     footerInfoTitle.current.innerHTML = song.title;
                     footerInfoSinger.current.innerHTML = song.artistsNames;
                     totalTime.current.innerHTML = secondsToHms(song.duration);
-                    context.playSong();
                     audio.current.src = data.data[128];
+
                     audio.current.play();
                 })
                 .catch((err) => {
