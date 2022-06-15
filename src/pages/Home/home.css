@@ -33,7 +33,11 @@
     left: 0;
     right: 0;
     transform: translateY(-50%);
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-around;
+}
+
+.bannerImg:hover .play-song-control {
+    display: flex;
 }

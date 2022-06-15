@@ -25,7 +25,7 @@ function Home() {
 
     const like = useRef(null);
     const dislike = useRef(null);
-    const handleLike = (encodeId) => {
+    const handleLike = (encodeId, thumbnail, title, sortDescription, index) => {
         context.setIndexLike((prev) => {
             if (prev.includes(encodeId)) {
                 return prev.filter((item) => item !== encodeId);
@@ -183,7 +183,18 @@ function Home() {
                                                         onClick={() => navigate(`/detail/album/${items.encodeId}`)}
                                                     ></div>
                                                     <div className="play-song-control">
-                                                        <div className="btnLike">
+                                                        <div
+                                                            className="btnLike"
+                                                            onClick={() =>
+                                                                handleLike(
+                                                                    items.encodeId,
+                                                                    items.thumbnail,
+                                                                    items.title,
+                                                                    items.sortDescription,
+                                                                    indexx,
+                                                                )
+                                                            }
+                                                        >
                                                             <i
                                                                 ref={dislike}
                                                                 className={
@@ -193,7 +204,6 @@ function Home() {
                                                                             : 'icon mainListLike ic-like hidden'
                                                                         : 'icon mainListLike ic-like'
                                                                 }
-                                                                onClick={() => handleLike(items.encodeId, indexx)}
                                                             ></i>
                                                             <i
                                                                 ref={like}
