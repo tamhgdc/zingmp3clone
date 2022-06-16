@@ -78,7 +78,7 @@ function Nav() {
                     {navTop.map((item, index) => (
                         <li
                             key={index}
-                            className={item.link === window.location.href.slice(21) ? 'navItem active' : 'navItem'}
+                            className={item.link === window.location.pathname.slice(1) ? 'navItem active' : 'navItem'}
                         >
                             <Link to={item.link} className="nav__item-link">
                                 <i className={item.icon}></i>
@@ -101,7 +101,9 @@ function Nav() {
                         return (
                             <li
                                 key={index}
-                                className={item.link === window.location.href.slice(21) ? 'navItem active' : 'navItem'}
+                                className={
+                                    item.link === window.location.pathname.slice(1) ? 'navItem active' : 'navItem'
+                                }
                             >
                                 <Link to={item.link} className="nav__item-link">
                                     <i className={item.icon}></i>
