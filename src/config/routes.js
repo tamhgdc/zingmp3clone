@@ -4,6 +4,7 @@ const routes = {
     album: '/detail/album/:id',
     pageNotFound: '/page-not-found',
     search: '/search/:keyword',
+    searchAll: '/search-all/:keyword',
     radio: '/radio',
     follow: '/follow',
     mymusic: '/mymusic',

@@ -263,11 +263,11 @@ function ZingChart() {
                 <div className="zingchart__list">
                     {view100 ? handleView100() : handleView10()}
                     {!view100 ? (
-                        <button onClick={() => setView100(!view100)} className="zingchart__btn-top">
+                        <button onClick={() => setView100(!view100)} className="btn-show-more-song">
                             Xem top 100
                         </button>
                     ) : (
-                        <button onClick={() => setView100(!view100)} className="zingchart__btn-top">
+                        <button onClick={() => setView100(!view100)} className="btn-show-more-song">
                             Ẩn top 100
                         </button>
                     )}

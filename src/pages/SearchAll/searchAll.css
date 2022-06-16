@@ -1,0 +1,10 @@
+.songResult {
+    position: relative;
+}
+
+.searchResult-show-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}

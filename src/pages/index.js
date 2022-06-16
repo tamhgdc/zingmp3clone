@@ -10,6 +10,7 @@ import Follow from './Follow/follow';
 import MyMusic from './MyMusic/mymusic';
 import NewMusic from './NewMusic/newMusic';
 import Top100 from './Top100/top100';
+import SearchAll from './SearchAll/searchAll';
 
 import config from '~/config';
 
@@ -27,6 +28,7 @@ function Main() {
                 <Route path={config.routes.mymusic} element={<MyMusic />} />
                 <Route path={config.routes.newmusic} element={<NewMusic />} />
                 <Route path={config.routes.top100} element={<Top100 />} />
+                <Route path={config.routes.searchAll} element={<SearchAll />} />
             </Routes>
         </div>
     );

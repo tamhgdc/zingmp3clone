@@ -17,7 +17,6 @@ function Home() {
     const [radio, ...dataPage2Items] = GetHomePage2();
     // eslint-disable-next-line no-unused-vars
     const [chart, week, slide, ...dataPage3Items] = GetHomePage3();
-    console.log(dataPage3Items[0]);
     // const dataPage3Items = [];
     // dataPage3Items.push(album);
     const [indexLike, setIndexLike] = useState();

@@ -5,6 +5,7 @@ import secondsToHms from '~/component/FCTime';
 import './footer.css';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import { URL } from '~/url';
+import axios from 'axios';
 
 function Footer() {
     const context = useContext(Context);
@@ -62,13 +63,18 @@ function Footer() {
 
     const footerPlaylist = useRef();
 
+    let va;
+    useEffect(() => {
+        va = context.indexSong;
+    }, []);
+
     useEffect(() => {
         if (context.songList[0].length > 0) {
             const song = context.songList ? context.songList[0][context.indexSong] : {};
             audio.current.pause();
-            fetch(`${URL}song/${context.songList[0][context.indexSong].encodeId}`)
-                .then((res) => res.json())
-                .then((data) => {
+            axios
+                .get(`${URL}song/${context.songList[0][context.indexSong].encodeId}`)
+                .then(({ data }) => {
                     footerImg.current.src = song.thumbnailM;
                     footerInfoTitle.current.innerHTML = song.title;
                     footerInfoSinger.current.innerHTML = song.artistsNames;
@@ -76,6 +82,9 @@ function Footer() {
                     audio.current.src = data.data[128];
 
                     audio.current.play();
+                    if (va !== context.indexSong) {
+                        context.playSong();
+                    }
                 })
                 .catch((err) => {
                     rangeInputSong.current.style.backgroundSize = 0;
