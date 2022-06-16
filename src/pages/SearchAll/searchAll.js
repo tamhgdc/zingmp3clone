@@ -5,7 +5,6 @@ import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 
 import secondsToHms from '~/component/FCTime';
-import routes from '~/config/routes';
 import Context from '~/context/context';
 import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
@@ -41,13 +40,18 @@ function SearchAll() {
 
     const handleScroll = (e) => {
         if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
+            setLoading(true);
             loadData();
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         loadData();
         window.addEventListener('scroll', handleScroll);
+        if (context.inputSearch.length === 0) {
+            context.setInputSearch(decodeURI(window.location.pathname.slice(12)));
+        }
     }, []);
 
     const handleClick = (index) => {
@@ -62,74 +66,65 @@ function SearchAll() {
     const searchResult = () => {
         return (
             <>
-                {loading ? (
+                <div className="searchResult">
+                    {suggestSong !== undefined && suggestSong.length !== 0 && (
+                        <div className="songResult">
+                            <h3 style={{ fontSize: '20px', marginTop: '60px', marginBottom: '15px' }}>Bài Hát</h3>
+                            <ul className="boxSongResult">
+                                {suggestSong.map((item, index) => {
+                                    let time = secondsToHms(item.duration);
+                                    return (
+                                        <li
+                                            onClick={() => {
+                                                handleClick(index);
+                                            }}
+                                            key={index}
+                                            className="boxSongResultItem"
+                                        >
+                                            <div className="songResultLink">
+                                                <div className="songResultDetail">
+                                                    <img className="songResultDetailImg" src={item.thumbnail} alt="" />
+                                                    <div className="boxSearchTopDetail">
+                                                        <h4 className="searchTopSinger">{item.title}</h4>
+                                                        <p className="searchTopTitle">{item.artistsNames}</p>
+                                                    </div>
+                                                </div>
+                                                <span className="songResultAlbum">
+                                                    {item.album !== undefined ? item.album.title : ''}
+                                                </span>
+
+                                                <span className="songResultTime">{time}</span>
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
+                    )}
+                    {suggestSong === undefined
+                        ? context.inputSearch && (
+                              <>
+                                  <div className="searchResult">
+                                      <div className="topSearch">
+                                          <h3 style={{ fontSize: '20px' }}>
+                                              {`Không Có Kết Quả Phù Hợp Cho "${inputSearch.value}"`}
+                                          </h3>
+                                      </div>
+                                  </div>
+                              </>
+                          )
+                        : !context.inputSearch && (
+                              <div className="searchResult">
+                                  <div className="topSearch">
+                                      <h3 style={{ fontSize: '20px' }}>{'Nhập Từ Khóa Cần Tìm'}</h3>
+                                  </div>
+                              </div>
+                          )}
+                </div>
+                {loading && (
                     <div style={{ display: 'flex' }}>
                         <div className="loader"></div>&emsp;<span>loading...</span>
                     </div>
-                ) : (
-                    <>
-                        <div className="searchResult">
-                            {suggestSong !== undefined && suggestSong.length !== 0 && (
-                                <div className="songResult">
-                                    <h3 style={{ fontSize: '20px', marginTop: '60px', marginBottom: '15px' }}>
-                                        Bài Hát
-                                    </h3>
-                                    <ul className="boxSongResult">
-                                        {suggestSong.map((item, index) => {
-                                            let time = secondsToHms(item.duration);
-                                            return (
-                                                <li
-                                                    onClick={() => {
-                                                        handleClick(index);
-                                                    }}
-                                                    key={index}
-                                                    className="boxSongResultItem"
-                                                >
-                                                    <div className="songResultLink">
-                                                        <div className="songResultDetail">
-                                                            <img
-                                                                className="songResultDetailImg"
-                                                                src={item.thumbnail}
-                                                                alt=""
-                                                            />
-                                                            <div className="boxSearchTopDetail">
-                                                                <h4 className="searchTopSinger">{item.title}</h4>
-                                                                <p className="searchTopTitle">{item.artistsNames}</p>
-                                                            </div>
-                                                        </div>
-                                                        <span className="songResultAlbum">
-                                                            {item.album !== undefined ? item.album.title : ''}
-                                                        </span>
-
-                                                        <span className="songResultTime">{time}</span>
-                                                    </div>
-                                                </li>
-                                            );
-                                        })}
-                                    </ul>
-                                </div>
-                            )}
-                            {suggestSong === undefined
-                                ? context.inputSearch && (
-                                      <>
-                                          <div className="searchResult">
-                                              <div className="topSearch">
-                                                  <h3 style={{ fontSize: '20px' }}>
-                                                      {`Không Có Kết Quả Phù Hợp Cho "${inputSearch.value}"`}
-                                                  </h3>
-                                              </div>
-                                          </div>
-                                      </>
-                                  )
-                                : !context.inputSearch && (
-                                      <div className="searchResult">
-                                          <div className="topSearch">
-                                              <h3 style={{ fontSize: '20px' }}>{'Nhập Từ Khóa Cần Tìm'}</h3>
-                                          </div>
-                                      </div>
-                                  )}
-                        </div>
-                    </>
                 )}
             </>
         );

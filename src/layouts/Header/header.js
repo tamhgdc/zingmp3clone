@@ -1,11 +1,14 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDebounce } from '~/hooks';
+import axios from 'axios';
+
 import Context from '~/context/context';
 import './header.css';
 import { SVGHeader } from '~/images';
 import { URL } from '~/url';
 import config from '~/config';
+
 function Header() {
     const context = useContext(Context);
 
@@ -30,12 +33,10 @@ function Header() {
         if (debouncedValue.length === 0) {
             return;
         }
-        fetch(`${URL}search/${debouncedValue}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setSuggestSong(data.data.songs);
-                setSuggestTop(data.data.top);
-            });
+        axios.get(`${URL}search/${debouncedValue}`).then(({ data }) => {
+            setSuggestSong(data.data.songs);
+            setSuggestTop(data.data.top);
+        });
     }, [debouncedValue]);
 
     const headerInfo = useRef();

@@ -6,6 +6,7 @@ import './album.css';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import { URL } from '~/url';
+import axios from 'axios';
 
 function Album() {
     const context = useContext(Context);
@@ -20,13 +21,11 @@ function Album() {
     });
 
     useEffect(() => {
-        fetch(`${URL}playlist/${document.URL.slice(-8)}`)
-            .then((res) => res.json())
-            .then((data) => {
-                document.title = data.data.title;
-                setDataSong(data.data.song);
-                setDatas(data.data);
-            });
+        axios.get(`${URL}playlist/${document.URL.slice(-8)}`).then(({ data }) => {
+            document.title = data.data.title;
+            setDataSong(data.data.song);
+            setDatas(data.data);
+        });
     }, []);
 
     const handleClick = (index) => {

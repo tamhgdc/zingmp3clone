@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { URL } from '~/url';
 
 import './banner.css';
@@ -10,11 +11,9 @@ function Banner() {
     const [dataPage1, setDataPage1] = useState([]);
 
     useEffect(() => {
-        fetch(`${URL}home/1`)
-            .then((res) => res.json())
-            .then((data) => {
-                setDataPage1(data.data.items[0].items);
-            });
+        axios.get(`${URL}home/1`).then(({ data }) => {
+            setDataPage1(data.data.items[0].items);
+        });
     }, []);
 
     const [imgLeft, setImgLeft] = useState(1);

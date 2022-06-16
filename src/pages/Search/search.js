@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
+import axios from 'axios';
 
 import secondsToHms from '~/component/FCTime';
 import routes from '~/config/routes';
@@ -49,9 +50,9 @@ function Search() {
             return;
         }
         setLoading(true);
-        fetch(`${URL}search/${debouncedValue}`)
-            .then((res) => res.json())
-            .then((data) => {
+        axios
+            .get(`${URL}search/${debouncedValue}`)
+            .then(({ data }) => {
                 setSuggestSong(data.data.songs);
                 setSuggestTop(data.data.top);
             })
