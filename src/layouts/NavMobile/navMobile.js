@@ -5,7 +5,7 @@ import navMobile from '~/component/NavMobileData';
 import './navMobile.scss';
 
 function NavMobile() {
-    const [navlink, setNavlink] = useState(window.location.pathname.slice(1));
+    const [navlink, setNavlink] = useState(window.location.pathname.slice(0));
     return (
         <nav>
             <div className="navMobile">
