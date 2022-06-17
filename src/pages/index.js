@@ -7,7 +7,7 @@ import Search from './Search/search';
 import PageNotFound from './PageNotFound/pageNotFound';
 import Radio from './Radio/radio';
 import Follow from './Follow/follow';
-import MyMusic from './MyMusic/mymusic';
+import MyMusic from './MyMusic/myMusic';
 import NewMusic from './NewMusic/newMusic';
 import Top100 from './Top100/top100';
 import SearchAll from './SearchAll/searchAll';

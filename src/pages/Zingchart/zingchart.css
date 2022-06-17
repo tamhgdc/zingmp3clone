@@ -28,7 +28,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #7200a1;
+    background-color: var(--color-default-secondary);
     display: flex;
     align-items: center;
     justify-content: center;

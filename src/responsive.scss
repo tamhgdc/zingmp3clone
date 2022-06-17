@@ -291,8 +291,9 @@
         .navLive,
         .logoImg,
         .nav__library-title,
+        .nav__library-icon,
         .footerLike {
-            display: none;
+            display: none !important;
         }
 
         .footer__right-control:not(:nth-child(4)) {
@@ -307,10 +308,10 @@
             flex-wrap: nowrap;
             overflow-x: overlay;
         }
-    }
 
-    i.iconHover {
-        display: none !important;
+        .navItem .iconHover {
+            display: none !important;
+        }
     }
 }
 

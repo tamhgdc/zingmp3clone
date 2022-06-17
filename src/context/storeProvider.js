@@ -11,7 +11,9 @@ function StoreProvider({ children }) {
     );
     const [inputSearch, setInputSearch] = useState('');
 
-    const [indexLike, setIndexLike] = useState([]);
+    const [indexLike, setIndexLike] = useState(
+        localStorage.getItem('like') ? JSON.parse(localStorage.getItem('like')) : [],
+    );
 
     const togglePlay = () => {
         setPlay(play === false ? true : false);

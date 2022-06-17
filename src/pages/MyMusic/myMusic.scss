@@ -1,0 +1,10 @@
+.myMusic {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.App .myMusic {
+    .boxBanner {
+        flex-wrap: wrap;
+    }
+}

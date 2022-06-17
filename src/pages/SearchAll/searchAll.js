@@ -79,7 +79,12 @@ function SearchAll() {
                                                 handleClick(index);
                                             }}
                                             key={index}
-                                            className="boxSongResultItem"
+                                            className={
+                                                context.indexSong === index &&
+                                                context.songList[0][index].encodeId === item.encodeId
+                                                    ? 'boxSongResultItem songActive'
+                                                    : 'boxSongResultItem'
+                                            }
                                         >
                                             <div className="songResultLink">
                                                 <div className="songResultDetail">

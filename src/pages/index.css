@@ -71,6 +71,8 @@
 
 .mainListFullLike {
     color: rgb(114, 0, 161);
+    position: absolute;
+    font-size: 22px;
 }
 
 .icon.mainListPlay {
