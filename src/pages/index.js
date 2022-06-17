@@ -7,7 +7,6 @@ import Search from './Search/search';
 import PageNotFound from './PageNotFound/pageNotFound';
 import Radio from './Radio/radio';
 import Follow from './Follow/follow';
-import MyMusic from './MyMusic/myMusic';
 import NewMusic from './NewMusic/newMusic';
 import Top100 from './Top100/top100';
 import SearchAll from './SearchAll/searchAll';
@@ -25,7 +24,6 @@ function Main() {
                 <Route path={config.routes.pageNotFound} element={<PageNotFound />} />
                 <Route path={config.routes.radio} element={<Radio />} />
                 <Route path={config.routes.follow} element={<Follow />} />
-                <Route path={config.routes.mymusic} element={<MyMusic />} />
                 <Route path={config.routes.newmusic} element={<NewMusic />} />
                 <Route path={config.routes.top100} element={<Top100 />} />
                 <Route path={config.routes.searchAll} element={<SearchAll />} />
