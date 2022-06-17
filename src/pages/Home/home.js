@@ -273,6 +273,16 @@ function Home() {
                                                             }
                                                         >
                                                             <i className="icon mainListLike ic-like"></i>
+                                                            {context.indexLike.map((i) => {
+                                                                return (
+                                                                    i.encodeId === items.encodeId && (
+                                                                        <i
+                                                                            key={i.encodeId}
+                                                                            className="icon mainListFullLike ic-like-full"
+                                                                        ></i>
+                                                                    )
+                                                                );
+                                                            })}
                                                         </div>
 
                                                         <div
@@ -335,6 +345,16 @@ function Home() {
                                                               }
                                                           >
                                                               <i className="icon mainListLike ic-like"></i>
+                                                              {context.indexLike.map((i) => {
+                                                                  return (
+                                                                      i.encodeId === items.encodeId && (
+                                                                          <i
+                                                                              key={i.encodeId}
+                                                                              className="icon mainListFullLike ic-like-full"
+                                                                          ></i>
+                                                                      )
+                                                                  );
+                                                              })}
                                                           </div>
 
                                                           <div
