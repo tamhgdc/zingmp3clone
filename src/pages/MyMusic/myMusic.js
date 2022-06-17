@@ -2,6 +2,8 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Context from '~/context/context';
 
+import './myMusic.scss';
+
 function MyMusic() {
     const context = useContext(Context);
     const navigate = useNavigate();

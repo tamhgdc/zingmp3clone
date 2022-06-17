@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import navTop from '~/component/NavTopData';
 import config from '~/config';

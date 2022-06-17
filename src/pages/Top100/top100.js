@@ -1,17 +1,41 @@
 import { GetTop100 } from '~/services';
-import { Link } from 'react-router-dom';
-import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
 import './top100.css';
 import renderSinger from '~/component/FCRenderSinger';
 import { SVGTop100 } from '~/images';
+import Context from '~/context/context';
 
 function Top100() {
+    const navigate = useNavigate();
+    const context = useContext(Context);
     const datas = GetTop100();
 
-    const like = useRef(null);
-    const dislike = useRef(null);
+    const handleLike = (encodeId, thumbnail, title, sortDescription, index) => {
+        context.setIndexLike((prev) => {
+            let newLike;
+            for (let i = 0; i < prev.length; i++) {
+                if (prev[i].encodeId === encodeId) {
+                    newLike = prev.filter((item) => item.encodeId !== encodeId);
+                    return newLike;
+                }
+            }
+            newLike = [
+                ...prev,
+                {
+                    encodeId,
+                    thumbnail,
+                    title,
+                    sortDescription,
+                    index,
+                },
+            ];
+            const JsonLike = JSON.stringify(newLike);
+            localStorage.setItem('like', JsonLike);
 
-    const [indexLike, setIndexLike] = useState();
+            return newLike;
+        });
+    };
 
     return (
         <div className="top100">
@@ -34,34 +58,47 @@ function Top100() {
                                                 <div className="btnImgList">
                                                     <img className="imgList " src={items.thumbnail} alt="" />
                                                 </div>
-                                                <Link to={`/detail/album/${items.encodeId}`} className="playSongMain">
-                                                    <div className="btnLike">
-                                                        <i
-                                                            ref={dislike}
-                                                            className={
-                                                                indexLike !== indexx
-                                                                    ? 'icon mainListLike ic-like'
-                                                                    : 'icon mainListLike ic-like hidden'
-                                                            }
-                                                        ></i>
-                                                        <i
-                                                            ref={like}
-                                                            className={
-                                                                indexLike === indexx
-                                                                    ? 'icon mainListFullLike ic-like-full'
-                                                                    : 'icon mainListFullLike ic-like-full hidden'
-                                                            }
-                                                        ></i>
+                                                <div
+                                                    className="playSongMain"
+                                                    onClick={() => navigate(`/detail/album/${items.encodeId}`)}
+                                                ></div>
+                                                <div className="play-song-control">
+                                                    <div
+                                                        className="btnLike"
+                                                        onClick={() =>
+                                                            handleLike(
+                                                                items.encodeId,
+                                                                items.thumbnail,
+                                                                items.title,
+                                                                items.sortDescription,
+                                                                indexx,
+                                                            )
+                                                        }
+                                                    >
+                                                        <i className="icon mainListLike ic-like"></i>
+                                                        {context.indexLike.map((i) => {
+                                                            return (
+                                                                i.encodeId === items.encodeId && (
+                                                                    <i
+                                                                        key={i.encodeId}
+                                                                        className="icon mainListFullLike ic-like-full"
+                                                                    ></i>
+                                                                )
+                                                            );
+                                                        })}
                                                     </div>
 
-                                                    <div className="linkAlbum">
+                                                    <div
+                                                        className="linkAlbum"
+                                                        onClick={() => navigate(`/detail/album/${items.encodeId}`)}
+                                                    >
                                                         <i className="icon mainListPlay ic-play-circle-outline"></i>
                                                     </div>
                                                     <div className="btnLike songMore">
                                                         <i className="icon mainListMore ic-more"></i>
                                                         <div className="songMoreDetail"></div>
                                                     </div>
-                                                </Link>
+                                                </div>
                                             </div>
                                             <h3 className="songName">{items.title}</h3>
                                             {renderSinger(items.artists)}

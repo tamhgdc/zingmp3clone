@@ -173,8 +173,8 @@ function Header() {
             <div className="headerSearch">
                 <button
                     onClick={() => {
-                        context.setInputSearch(input);
-                        navigate(`/search/${input}`);
+                        context.setInputSearch(searchInput.current.value);
+                        navigate(`/search/${searchInput.current.value}`);
                         suggestSongs.current.classList.add('hidden');
                     }}
                     className="iconSearch"

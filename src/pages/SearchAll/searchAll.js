@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 
@@ -52,6 +51,7 @@ function SearchAll() {
         if (context.inputSearch.length === 0) {
             context.setInputSearch(decodeURI(window.location.pathname.slice(12)));
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleClick = (index) => {

@@ -65,6 +65,7 @@ function Footer() {
 
     let va;
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         va = context.indexSong;
     }, []);
 
