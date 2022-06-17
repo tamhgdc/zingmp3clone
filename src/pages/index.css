@@ -1,9 +1,9 @@
 .main {
     width: calc(100% - var(--default-width-nav));
-    position: absolute;
+    position: relative;
     z-index: 1;
     padding: 100px 60px 108px;
-    left: var(--default-width-nav);
+    margin-left: var(--default-width-nav);
     color: var(--white);
     background-color: var(--default-bgcolor-body);
     transition: all 0.3s ease-in-out;
@@ -70,7 +70,7 @@
 }
 
 .mainListFullLike {
-    color: rgb(114, 0, 161);
+    color: var(--color-default-secondary);
     position: absolute;
     font-size: 22px;
 }

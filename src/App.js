@@ -10,6 +10,7 @@ import Main from './pages';
 import Footer from './layouts/Footer/footer';
 import { useContext } from 'react';
 import NavMobile from './layouts/NavMobile/navMobile';
+import ModalTheme from './layouts/ModalTheme/modalTheme';
 
 function App() {
     const context = useContext(Context);
@@ -21,6 +22,8 @@ function App() {
             <Main />
             {data > 0 ? <Footer /> : null}
             <NavMobile />
+
+            {context.showModalTheme ? <ModalTheme /> : null}
         </div>
     );
 }

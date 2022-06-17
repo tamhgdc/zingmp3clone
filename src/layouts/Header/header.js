@@ -208,7 +208,7 @@ function Header() {
                 </div>
             </div>
             <div className="headerRight">
-                <button className="circle ">
+                <button className="circle " onClick={() => context.setShowModalTheme(true)}>
                     <i className="icon">
                         <SVGHeader />
                     </i>

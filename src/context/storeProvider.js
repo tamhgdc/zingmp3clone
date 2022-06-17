@@ -15,6 +15,8 @@ function StoreProvider({ children }) {
         localStorage.getItem('like') ? JSON.parse(localStorage.getItem('like')) : [],
     );
 
+    const [showModalTheme, setShowModalTheme] = useState(true);
+
     const togglePlay = () => {
         setPlay(play === false ? true : false);
     };
@@ -48,6 +50,8 @@ function StoreProvider({ children }) {
         setInputSearch,
         indexLike,
         setIndexLike,
+        showModalTheme,
+        setShowModalTheme,
     };
     return <Context.Provider value={data}>{children}</Context.Provider>;
 }
