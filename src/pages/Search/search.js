@@ -5,7 +5,6 @@ import FCSaveLocalList from '~/component/FCSaveLocalList';
 import axios from 'axios';
 
 import secondsToHms from '~/component/FCTime';
-import routes from '~/config/routes';
 import Context from '~/context/context';
 import { useDebounce } from '~/hooks';
 import { URL } from '~/url';

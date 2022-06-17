@@ -1,4 +1,4 @@
-import { useRef, useState, useContext } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import renderSinger from '~/component/FCRenderSinger';
 import routes from '~/config/routes';
