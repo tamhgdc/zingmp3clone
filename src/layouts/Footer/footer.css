@@ -319,7 +319,7 @@
     height: calc(100vh - var(--default-height-footer));
     width: 50vh;
     z-index: 100;
-    background-color: #120822;
+    background-color: var(--bgcolor-show-listsong);
     color: var(--white);
     overflow-y: auto;
     transform: translateX(101%);

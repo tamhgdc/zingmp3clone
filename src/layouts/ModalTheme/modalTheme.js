@@ -5,6 +5,12 @@ import './modalTheme.scss';
 
 function ModalTheme() {
     const context = useContext(Context);
+
+    const handleChangeTheme = (theme) => {
+        const JSONTheme = JSON.stringify(theme);
+        localStorage.setItem('theme', JSONTheme);
+        context.setShowModalTheme(false);
+    };
     return (
         <div className="modal-theme">
             <div className="box">
@@ -29,7 +35,12 @@ function ModalTheme() {
                                                         <img src={x.bg} alt="" />
 
                                                         <div className="box-color-hover">
-                                                            <div className="btn-color-action">Áp dụng</div>
+                                                            <div
+                                                                className="btn-color-action"
+                                                                onClick={() => handleChangeTheme(x.code)}
+                                                            >
+                                                                Áp dụng
+                                                            </div>
                                                             <div className="btn-color-preview">Xem trước</div>
                                                         </div>
                                                     </div>

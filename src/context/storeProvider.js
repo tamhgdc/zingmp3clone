@@ -15,7 +15,7 @@ function StoreProvider({ children }) {
         localStorage.getItem('like') ? JSON.parse(localStorage.getItem('like')) : [],
     );
 
-    const [showModalTheme, setShowModalTheme] = useState(true);
+    const [showModalTheme, setShowModalTheme] = useState(false);
 
     const togglePlay = () => {
         setPlay(play === false ? true : false);

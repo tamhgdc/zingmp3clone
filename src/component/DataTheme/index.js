@@ -5,34 +5,42 @@ export const data = [
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/dark.jpg',
                 title: 'Tối',
+                code: 'dark',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/purple.jpg',
                 title: 'Tím',
+                code: 'purple',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue.jpg',
                 title: 'Xanh Đậm',
+                code: 'blue',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/blue-light.jpg',
                 title: 'Xanh Biển',
+                code: 'blue-light',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/green.jpg',
                 title: 'Xanh Lá',
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/brown.jpg',
                 title: 'Nâu',
+                code: 'brown',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/pink.jpg',
                 title: 'Hồng',
+                code: 'pink',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/red.jpg',
                 title: 'Đỏ',
+                code: 'red',
             },
         ],
     },

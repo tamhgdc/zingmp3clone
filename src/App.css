@@ -17,14 +17,17 @@
     --default-height-footer: 90px;
     --default-bgcolor-footer: #120c1c;
 
-    --color-default: #b1b1b1;
+    --color-default: #b7bbc5;
     --color-default-secondary: #7200a1;
-    --color-text-detail: #8b8791;
+    --color-text-detail: #b7bbc5;
     --color-text-search: #fbfafc;
     --color-text-hover: #c662ef;
     --white: #fff;
 
     --bgcolor-range: #ffffff66;
+    --bgcolor-search: #432275;
+    --bgcolor-more: #2f2739;
+    --bgcolor-show-listsong: #120822;
 }
 
 body {
