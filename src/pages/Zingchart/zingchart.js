@@ -18,6 +18,7 @@ function ZingChart() {
     document.title = '#zingchart | Xem bài hát, album, MV đang hot nhất hiện tại';
 
     let chart = GetChart();
+    console.log(chart);
 
     let times = [];
 
@@ -37,7 +38,6 @@ function ZingChart() {
             const color = ['#4A90E2', '#27BD9C', '#E35050'];
             datas.push({
                 label: chart.RTChart.items[i].title,
-
                 borderColor: color[i],
                 data: values.splice(0, 24),
                 tension: 0.4,
@@ -230,6 +230,9 @@ function ZingChart() {
                                 },
                                 legend: {
                                     labels: {
+                                        color: 'white',
+                                    },
+                                    title: {
                                         color: 'white',
                                     },
                                 },
