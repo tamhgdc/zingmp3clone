@@ -18,7 +18,6 @@ function ZingChart() {
     document.title = '#zingchart | Xem bài hát, album, MV đang hot nhất hiện tại';
 
     let chart = GetChart();
-    console.log(chart);
 
     let times = [];
 
