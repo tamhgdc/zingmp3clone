@@ -172,7 +172,7 @@ function Home() {
         return (
             <>
                 {dataPage1Items.length > 0 &&
-                    dataPage1Items.slice(1).map((item, index) => {
+                    dataPage1Items.map((item, index) => {
                         return (
                             <div key={index}>
                                 <h2 className="pageTitle">{item.title}</h2>
