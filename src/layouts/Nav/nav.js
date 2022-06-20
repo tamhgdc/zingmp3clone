@@ -20,12 +20,12 @@ function Nav() {
         },
         {
             name: 'Top 100',
-            link: '/top100',
+            link: config.routes.top100,
             icon: 'icon  ic-24-Top100Tab',
         },
         {
             name: 'MV',
-            link: '#',
+            link: '/mv/viet-nam/IWZ9Z08I',
             icon: 'icon  ic-24-MVTab',
         },
     ];

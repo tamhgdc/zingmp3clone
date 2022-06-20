@@ -12,6 +12,7 @@ function NewMusic() {
     let data = GetNewMusic();
 
     const handelPlay = (index) => {
+        context.setCheckPlaySong(true);
         context.addSongList(data.items);
         context.playSong();
         context.currentSong(index);
@@ -21,6 +22,7 @@ function NewMusic() {
     };
 
     const handlePlayAll = () => {
+        context.setCheckPlaySong(true);
         context.addSongList(data.items);
         context.playSong();
         context.currentSong(0);

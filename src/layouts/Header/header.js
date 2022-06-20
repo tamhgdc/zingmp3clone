@@ -45,18 +45,18 @@ function Header() {
         headerInfo.current.classList.toggle('hidden');
     };
 
-    const handleFocus = (e) => {
-        suggestSongs.current.classList.remove('hidden');
-    };
+    // const handleFocus = (e) => {
+    //     suggestSongs.current.classList.remove('hidden');
+    // };
 
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.headerSearch')) {
-            suggestSongs.current.classList.add('hidden');
-        }
-        if (!e.target.closest('.header__info-last')) {
-            headerInfo.current.classList.add('hidden');
-        }
-    });
+    // document.addEventListener('click', (e) => {
+    //     if (!e.target.closest('.headerSearch')) {
+    //         suggestSongs.current.classList.add('hidden');
+    //     }
+    //     if (!e.target.closest('.header__info-last')) {
+    //         headerInfo.current.classList.add('hidden');
+    //     }
+    // });
 
     const searchDefaultItem = [
         {
@@ -194,7 +194,7 @@ function Header() {
                             navigate(`/search/${searchInput.current.value}`);
                         }
                     }}
-                    onFocus={() => handleFocus()}
+                    // onFocus={() => handleFocus()}
                     className="searchInput"
                     type="text"
                     placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."

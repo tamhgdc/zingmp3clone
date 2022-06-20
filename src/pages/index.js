@@ -11,6 +11,7 @@ import NewMusic from './NewMusic/newMusic';
 import MyMusic from './MyMusic/myMusic';
 import Top100 from './Top100/top100';
 import SearchAll from './SearchAll/searchAll';
+import MV from './MV/mv';
 
 import config from '~/config';
 
@@ -29,6 +30,7 @@ function Main() {
                 <Route path={config.routes.mymusic} element={<MyMusic />} />
                 <Route path={config.routes.top100} element={<Top100 />} />
                 <Route path={config.routes.searchAll} element={<SearchAll />} />
+                <Route path={config.routes.mv} element={<MV />} />
             </Routes>
         </div>
     );

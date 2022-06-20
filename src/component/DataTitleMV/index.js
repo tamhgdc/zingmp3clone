@@ -1,4 +1,4 @@
-const data = [
+const tabMV = [
     {
         title: 'Việt Nam',
         code: 'IWZ9Z08I',
@@ -21,4 +21,4 @@ const data = [
     },
 ];
 
-export default data;
+export default tabMV;

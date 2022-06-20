@@ -64,6 +64,7 @@ function Search() {
     }, [debouncedValue]);
 
     const handleClick = (index) => {
+        context.setCheckPlaySong(true);
         context.addSongList(suggestSong);
         context.playSong();
         context.currentSong(index);
@@ -76,6 +77,7 @@ function Search() {
         if (suggestTop.title === undefined) {
             alert('singer');
         } else if (suggestTop.sortDescription === undefined) {
+            context.setCheckPlaySong(true);
             context.addSongList([suggestTop]);
             context.playSong();
             context.currentSong(0);

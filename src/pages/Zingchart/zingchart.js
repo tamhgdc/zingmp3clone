@@ -57,6 +57,7 @@ function ZingChart() {
     };
 
     const handelPlay = (index) => {
+        context.setCheckPlaySong(true);
         context.addSongList(chart.RTChart.items);
         context.playSong();
         context.currentSong(index);
@@ -66,6 +67,7 @@ function ZingChart() {
     };
 
     const handlePlayAll = () => {
+        context.setCheckPlaySong(true);
         context.addSongList(chart.RTChart.items);
         context.playSong();
         context.currentSong(0);
@@ -231,9 +233,6 @@ function ZingChart() {
                                     labels: {
                                         color: 'white',
                                     },
-                                    title: {
-                                        color: 'white',
-                                    },
                                 },
                             },
                             interaction: {
@@ -245,6 +244,10 @@ function ZingChart() {
                                     title: {
                                         display: true,
                                         text: 'Time ( hour)',
+                                        color: 'white',
+                                    },
+                                    ticks: {
+                                        color: 'white',
                                     },
                                 },
                                 y: {

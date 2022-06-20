@@ -29,6 +29,7 @@ function Album() {
     }, []);
 
     const handleClick = (index) => {
+        context.setCheckPlaySong(true);
         context.addSongList(dataSong.items);
         context.playSong();
         context.currentSong(index);

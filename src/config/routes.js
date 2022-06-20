@@ -10,6 +10,7 @@ const routes = {
     mymusic: '/mymusic',
     newmusic: '/newmusic',
     top100: '/top100',
+    mv: '/mv/:link/:code',
 };
 
 export default routes;

@@ -44,9 +44,11 @@ function Footer() {
     const handlePlay = () => {
         context.togglePlay();
         if (context.play) {
+            context.setCheckPlaySong(false);
             audio.current.pause();
         } else {
             if (audio.current.src) {
+                context.setCheckPlaySong(true);
                 audio.current.play();
             } else {
                 alert('Chưa có bài hát nào được chọn');
@@ -63,12 +65,6 @@ function Footer() {
 
     const footerPlaylist = useRef();
 
-    let va;
-    useEffect(() => {
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        va = context.indexSong;
-    }, []);
-
     useEffect(() => {
         if (context.songList[0].length > 0) {
             const song = context.songList ? context.songList[0][context.indexSong] : {};
@@ -82,8 +78,8 @@ function Footer() {
                     totalTime.current.innerHTML = secondsToHms(song.duration);
                     audio.current.src = data.data[128];
 
-                    audio.current.play();
-                    if (va !== context.indexSong) {
+                    if (context.checkPlaySong) {
+                        audio.current.play();
                         context.playSong();
                     }
                 })
@@ -241,6 +237,7 @@ function Footer() {
     };
 
     const handleClick = (index) => {
+        context.setCheckPlaySong(true);
         context.currentSong(index);
         context.playSong();
 

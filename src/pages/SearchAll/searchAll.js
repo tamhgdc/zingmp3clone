@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
+import ScrollLoadPage from '~/component/FCScrollLoadPage';
 
 import secondsToHms from '~/component/FCTime';
 import Context from '~/context/context';
@@ -37,17 +38,9 @@ function SearchAll() {
         indexPage++;
     };
 
-    const handleScroll = (e) => {
-        if (window.innerHeight + e.target.documentElement.scrollTop + 1 >= e.target.documentElement.scrollHeight) {
-            setLoading(true);
-            loadData();
-            setLoading(false);
-        }
-    };
+    ScrollLoadPage(loadData, setLoading);
 
     useEffect(() => {
-        loadData();
-        window.addEventListener('scroll', handleScroll);
         if (context.inputSearch.length === 0) {
             context.setInputSearch(decodeURI(window.location.pathname.slice(12)));
         }
@@ -55,6 +48,7 @@ function SearchAll() {
     }, []);
 
     const handleClick = (index) => {
+        context.setCheckPlaySong(true);
         context.addSongList(suggestSong);
         context.playSong();
         context.currentSong(index);

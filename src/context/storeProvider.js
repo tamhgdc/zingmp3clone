@@ -17,6 +17,10 @@ function StoreProvider({ children }) {
 
     const [showModalTheme, setShowModalTheme] = useState(false);
 
+    const [encodeIdMV, setEncodeIdMV] = useState('');
+
+    const [checkPlaySong, setCheckPlaySong] = useState(false);
+
     const togglePlay = () => {
         setPlay(play === false ? true : false);
     };
@@ -52,6 +56,10 @@ function StoreProvider({ children }) {
         setIndexLike,
         showModalTheme,
         setShowModalTheme,
+        encodeIdMV,
+        setEncodeIdMV,
+        checkPlaySong,
+        setCheckPlaySong,
     };
     return <Context.Provider value={data}>{children}</Context.Provider>;
 }
