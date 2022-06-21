@@ -202,7 +202,7 @@
 }
 
 .btnControl .active {
-    color: #5c4ce7;
+    color: var(--bgcolor-search);
 }
 
 .range {
@@ -266,7 +266,7 @@
 
 .totalTime,
 .time {
-    color: #6e717c;
+    color: var(--color-default);
     font-size: 12px;
     font-weight: 600;
 }

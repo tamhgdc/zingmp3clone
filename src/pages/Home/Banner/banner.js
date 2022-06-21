@@ -83,9 +83,9 @@ function Banner() {
     const loadding = () => {
         return (
             <div className="row sm_gutter banner">
-                <div className="col l_4 btnImgBanner imgLeft loading"></div>
-                <div className="col l_4 btnImgBanner imgSelected loading"></div>
-                <div className="col l_4 btnImgBanner imgRight loading"></div>
+                <div className="col l_4 m_4 c_6 btnImgBanner imgLeft loading"></div>
+                <div className="col l_4 m_4 c_6 btnImgBanner imgSelected loading"></div>
+                <div className="col l_4 m_4 c_6 btnImgBanner imgRight loading"></div>
             </div>
         );
     };

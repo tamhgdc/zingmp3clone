@@ -50,14 +50,17 @@ export const data = [
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/xone-thumbn.jpg',
                 title: 'XONE',
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/zma.jpg',
                 title: 'Zing Music Awards',
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/eiffel.jpg',
                 title: 'Tháp Eiffel',
+                code: 'green',
             },
         ],
     },
@@ -92,30 +95,44 @@ export const data = [
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jack.jpg',
                 title: 'Jack',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/iu.jpg',
                 title: 'IU',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/ji-chang-wook.jpg',
                 title: 'Ji Chang Wook',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/lisa.jpg',
                 title: 'Lisa',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jennie.jpg',
                 title: 'Jennie Kim',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/jisoo.jpg',
                 title: 'Jisoo',
+
+                code: 'green',
             },
             {
                 bg: 'https://zmp3-static.zmdcdn.me/skins/zmp3-v6.1/images/theme/rose.jpg',
                 title: 'Rosé',
+
+                code: 'green',
             },
         ],
     },

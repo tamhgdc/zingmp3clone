@@ -42,7 +42,7 @@ function SearchAll() {
 
     useEffect(() => {
         if (context.inputSearch.length === 0) {
-            context.setInputSearch(decodeURI(window.location.pathname.slice(12)));
+            context.setInputSearch(decodeURI(window.location.pathname.split('/')[2]));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

@@ -13,6 +13,10 @@
     transition: all 0.2s ease-in-out;
 }
 
+.album__detail-img {
+    height: 400px;
+}
+
 .album__img {
     position: unset;
 }

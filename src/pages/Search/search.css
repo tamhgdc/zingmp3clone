@@ -13,7 +13,7 @@
     width: 400px;
     height: 100px;
     padding: 10px 15px;
-    background-color: #443d4d;
+    background-color: var(--bgcolor-search);
     box-shadow: 0 5px 5px rgba(185, 185, 185, 0.315);
     border-radius: 5px;
     margin-top: 15px;

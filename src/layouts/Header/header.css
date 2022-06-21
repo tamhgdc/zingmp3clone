@@ -109,7 +109,7 @@
 }
 
 .suggest-song-icon {
-    color: #786b8d;
+    color: var(--color-text-search);
     font-size: 16px;
     margin-right: 12px;
 }
@@ -225,7 +225,7 @@
 }
 
 .logout {
-    border-top: 1px solid #646464;
+    border-top: 1px solid var(--bgcolor-more);
 }
 
 .header__info-VIP-link {
