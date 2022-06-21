@@ -2,7 +2,7 @@ import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import secondsToHms from '~/component/FCTime';
 
-function Render(data, context) {
+function Render({ data, context }) {
     const handelPlay = (index) => {
         context.setCheckPlaySong(true);
         context.addSongList(data.items);
