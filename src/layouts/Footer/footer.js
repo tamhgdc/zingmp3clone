@@ -1,10 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useContext, useRef, useState } from 'react';
 
 import Context from '~/context/context';
-import secondsToHms from '~/component/FCTime';
 import './footer.css';
-import { URL } from '~/url';
-import axios from 'axios';
 import LeftFooter from './component/left';
 import Control from './component/control';
 import RightFooter from './component/right';

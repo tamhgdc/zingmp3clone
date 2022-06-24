@@ -1,27 +1,6 @@
-function SearchResult({ context, navigate, suggestTop, searchInput, suggestSongs, suggestSong }) {
+function SearchResult({ context, navigate, searchInput, suggestSongs, suggestSong }) {
     return (
         <>
-            {suggestTop !== undefined && suggestTop.length !== 0 && (
-                <>
-                    <h3 className="suggest-song-title">Top tìm kiếm</h3>
-                    <ul className="suggest-song-list">
-                        <li
-                            onClick={() => {
-                                context.setInputSearch(suggestTop.name || suggestTop.title);
-                                searchInput.current.value = suggestTop.name || suggestTop.title;
-                                navigate(`/search/${searchInput.current.value}`);
-                                suggestSongs.current.classList.add('hidden');
-                            }}
-                            className="suggest-song-item"
-                        >
-                            <i className="icon suggest-song-icon ic-trend"></i>
-                            <span className="suggest-song-prev">
-                                {suggestTop.name !== undefined ? suggestTop.name : suggestTop.title}
-                            </span>
-                        </li>
-                    </ul>
-                </>
-            )}
             {suggestSong !== undefined && (
                 <>
                     <h3 className="suggest-song-title">Đề xuất cho bạn</h3>
@@ -34,6 +13,7 @@ function SearchResult({ context, navigate, suggestTop, searchInput, suggestSongs
                                         suggestSongs.current.classList.add('hidden');
                                         searchInput.current.value = item.title;
                                         context.setInputSearch(item.title);
+                                        context.setKeywordSearch(item.title);
                                         navigate(`/search/${item.title}`);
                                     }}
                                     className="suggest-song-item"

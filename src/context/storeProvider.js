@@ -11,6 +11,8 @@ function StoreProvider({ children }) {
     );
     const [inputSearch, setInputSearch] = useState('');
 
+    const [keywordSearch, setKeywordSearch] = useState('');
+
     const [indexLike, setIndexLike] = useState(
         localStorage.getItem('like') ? JSON.parse(localStorage.getItem('like')) : [],
     );
@@ -22,7 +24,8 @@ function StoreProvider({ children }) {
     const [checkPlaySong, setCheckPlaySong] = useState(false);
 
     const togglePlay = () => {
-        setPlay(play === false ? true : false);
+        setPlay(!play);
+        // === false ? true : false
     };
 
     const playSong = () => {
@@ -52,6 +55,8 @@ function StoreProvider({ children }) {
         currentSong,
         inputSearch,
         setInputSearch,
+        keywordSearch,
+        setKeywordSearch,
         indexLike,
         setIndexLike,
         showModalTheme,

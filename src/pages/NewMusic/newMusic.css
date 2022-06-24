@@ -2,20 +2,26 @@
     position: relative;
 }
 
+.new-music .loading {
+    width: 100% !important;
+}
+
+.new-music .listAlbum {
+    margin-left: unset;
+}
+
 .new-music-bg {
     position: absolute;
     width: 100%;
     height: 380px;
     background: url('../../images/new-release-bg.73d8f976.jpg') top/cover no-repeat;
     filter: grayscale(1);
-    top: -30px;
 }
 
 .bg-alpha {
     position: absolute;
     width: 100%;
     height: 380px;
-    top: -30px;
     z-index: 0;
     background-image: linear-gradient(180deg, hsla(0, 0%, 100%, 0) 37%, var(--default-bgcolor-body));
 }
@@ -25,7 +31,6 @@
     position: absolute;
     width: 100%;
     height: 380px;
-    top: -30px;
     z-index: 0;
     background-image: linear-gradient(180deg, var(--default-bgcolor-body), var(--default-bgcolor-body));
 }

@@ -78,6 +78,10 @@
 
 .list-albums-album {
     flex: 0.7;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
 }
 
 .list-albums-time {
@@ -93,21 +97,21 @@
     display: flex;
     color: var(--white);
     margin-bottom: 5px;
-    max-width: 200px;
 }
 
 .detail-title-name {
     flex: 1;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .detail-artist {
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .VIP {
@@ -144,6 +148,7 @@
     z-index: 2;
     pointer-events: auto !important;
     cursor: not-allowed !important;
+    border-radius: 5px;
 }
 
 .list-album-item:hover {

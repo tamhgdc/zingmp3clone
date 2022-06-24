@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
-
-const { default: config } = require('~/config');
+import config from '~/config';
 
 const navScroll = [
     {

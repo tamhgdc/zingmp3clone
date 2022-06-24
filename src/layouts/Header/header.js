@@ -19,24 +19,22 @@ function Header() {
 
     const [input, setInput] = useState('');
     const [suggestSong, setSuggestSong] = useState([]);
-    const [suggestTop, setSuggestTop] = useState([]);
 
     useEffect(() => {
         if (input.length === 0) {
             setSuggestSong([]);
-            setSuggestTop([]);
         }
     }, [input]);
 
-    const debouncedValue = useDebounce(input, 1000);
+    const debouncedValue = useDebounce(context.inputSearch, 1000);
 
     useEffect(() => {
         if (debouncedValue.length === 0) {
+            setSuggestSong([]);
             return;
         }
         axios.get(`${URL}search/${debouncedValue}`).then(({ data }) => {
             setSuggestSong(data.data.songs);
-            setSuggestTop(data.data.top);
         });
     }, [debouncedValue]);
 
@@ -52,7 +50,6 @@ function Header() {
                 searchInput={searchInput}
                 setInput={setInput}
                 suggestSong={suggestSong}
-                suggestTop={suggestTop}
                 headerInfo={headerInfo}
             />
             <HeaderRight context={context} headerInfo={headerInfo} />

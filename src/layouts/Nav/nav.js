@@ -31,11 +31,13 @@ function Nav() {
         >
             <Logo navigation={navigation} showNavMobile={showNavMobile} />
 
-            <NavMain />
+            <div className="nav-content">
+                <NavMain />
 
-            <div className="navDivide"></div>
+                <div className="navDivide"></div>
 
-            <NavScroll />
+                <NavScroll />
+            </div>
 
             <div className="nav__new-playlist">
                 <i className="icon  ic-add"></i>

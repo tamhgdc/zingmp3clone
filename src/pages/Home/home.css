@@ -4,7 +4,7 @@
 }
 
 .songName:hover {
-    color: var(--color-text-hover);
+    color: var(--color-default-secondary);
     text-decoration: underline;
 }
 

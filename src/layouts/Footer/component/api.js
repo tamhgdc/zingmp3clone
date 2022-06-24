@@ -31,8 +31,10 @@ function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitl
                     audio.current.pause();
                     if (context.indexSong < context.songList[0].length - 1) {
                         context.currentSong(context.indexSong + 1);
+                        context.setCheckPlaySong(true);
                     } else {
                         context.currentSong(0);
+                        context.setCheckPlaySong(true);
                     }
                 });
         }

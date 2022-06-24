@@ -11,6 +11,7 @@
     position: fixed;
     z-index: 2;
     transition: bottom 0.2s ease-in-out, width 0.2s ease-in-out;
+    overflow-y: overlay;
 }
 
 .navFull {
@@ -40,6 +41,10 @@
     top: 50%;
     transform: translate(-50%, -50%);
     display: none;
+}
+
+.nav-content {
+    overflow-y: unset;
 }
 
 .navList {
@@ -124,6 +129,7 @@ i.iconHover {
 
 .navScroll {
     flex: 1;
+    height: 34vh;
     overflow-y: auto;
     margin-bottom: 60px;
     padding-bottom: 10px;

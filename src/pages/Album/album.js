@@ -1,13 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
 
 import Context from '~/context/context';
-import secondsToHms from '~/component/FCTime';
 import './album.css';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import { URL } from '~/url';
 import axios from 'axios';
-import Loading from './component/loading';
+import Loading from '../../component/LoadingListSong/loading';
 import ListAlbumItem from './component/listAlbumItem';
 
 function Album() {
@@ -15,6 +12,10 @@ function Album() {
     const [dataSong, setDataSong] = useState({
         items: [],
     });
+
+    useLayoutEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     const [datas, setDatas] = useState({
         Song: [],
@@ -28,6 +29,8 @@ function Album() {
             setDataSong(data.data.song);
             setDatas(data.data);
         });
+        context.setInputSearch('');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (
@@ -36,7 +39,12 @@ function Album() {
                 {dataSong.items.length > 0 ? (
                     <ListAlbumItem datas={datas} dataSong={dataSong} context={context} />
                 ) : (
-                    <Loading />
+                    <>
+                        <div className="album__detail-img loading">
+                            <div className="album__img" />
+                        </div>
+                        <Loading />
+                    </>
                 )}
             </div>
         </>

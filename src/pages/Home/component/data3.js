@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
 import renderSinger from '~/component/FCRenderSinger';
+import HandleLike from '~/component/HandleLike';
 import routes from '~/config/routes';
 
-function DataPageThree({ dataPage3Items, navigate, context, handleLike }) {
+function DataPageThree({ dataPage3Items, navigate, context }) {
     return (
         <>
             {dataPage3Items.length > 0 &&
@@ -30,12 +31,13 @@ function DataPageThree({ dataPage3Items, navigate, context, handleLike }) {
                                                     <div
                                                         className="btnLike"
                                                         onClick={() =>
-                                                            handleLike(
+                                                            HandleLike(
                                                                 items.encodeId,
                                                                 items.thumbnail,
                                                                 items.title,
                                                                 items.sortDescription,
                                                                 indexx,
+                                                                context,
                                                             )
                                                         }
                                                     >

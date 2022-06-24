@@ -1,7 +1,7 @@
 import SearchDefault from './searchDefault';
 import SearchResult from './searchResult';
 
-function HeaderSearch({ context, navigate, suggestSongs, searchInput, setInput, suggestSong, suggestTop, headerInfo }) {
+function HeaderSearch({ context, navigate, suggestSongs, searchInput, setInput, suggestSong, headerInfo }) {
     const handleFocus = (e) => {
         suggestSongs.current.classList.remove('hidden');
     };
@@ -20,6 +20,7 @@ function HeaderSearch({ context, navigate, suggestSongs, searchInput, setInput, 
             <button
                 onClick={() => {
                     context.setInputSearch(searchInput.current.value);
+                    context.setKeywordSearch(searchInput.current.value);
                     navigate(`/search/${searchInput.current.value}`);
                     suggestSongs.current.classList.add('hidden');
                 }}
@@ -37,6 +38,7 @@ function HeaderSearch({ context, navigate, suggestSongs, searchInput, setInput, 
                     if (e.keyCode === 13) {
                         suggestSongs.current.classList.add('hidden');
                         context.setInputSearch(searchInput.current.value);
+                        context.setKeywordSearch(searchInput.current.value);
                         navigate(`/search/${searchInput.current.value}`);
                     }
                 }}
@@ -47,12 +49,10 @@ function HeaderSearch({ context, navigate, suggestSongs, searchInput, setInput, 
                 value={context.inputSearch}
             />
             <div ref={suggestSongs} className="suggestSongs hidden">
-                {(suggestSong !== undefined || suggestTop !== undefined) &&
-                (suggestSong.length !== 0 || suggestTop.length !== 0) ? (
+                {suggestSong !== undefined && suggestSong.length !== 0 ? (
                     <SearchResult
                         context={context}
                         navigate={navigate}
-                        suggestTop={suggestTop}
                         searchInput={searchInput}
                         suggestSongs={suggestSongs}
                         suggestSong={suggestSong}

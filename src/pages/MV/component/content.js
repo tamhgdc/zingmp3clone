@@ -19,7 +19,16 @@ function Content({ dataMV, context, audio }) {
                         <div key={index} className="col sm_gutter l_4 m_6 c_12 render-MV-item">
                             <div className="MV-img">
                                 <img src={item.thumbnailM} alt="" />
-                                <div className="MV-hover" onClick={() => handleMV(item.encodeId)}>
+                                <div
+                                    className="MV-hover"
+                                    onClick={() => {
+                                        if (item.streamingStatus !== 2) {
+                                            handleMV(item.encodeId);
+                                        } else {
+                                            alert('Cần nâng tài khoản VIP để xem');
+                                        }
+                                    }}
+                                >
                                     <i className="icon icon-play-MV ic-play-circle-outline"></i>
                                 </div>
                             </div>

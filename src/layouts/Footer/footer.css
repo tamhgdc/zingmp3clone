@@ -65,19 +65,19 @@
     color: #f7f6f7;
     font-size: 14px;
     font-weight: 600;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .footer__info-singer {
     font-size: 13px;
     color: #6e717c;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    width: 200px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .footerLike {
@@ -132,7 +132,7 @@
 }
 
 .footer__icon-full-like {
-    color: rgb(114, 0, 161);
+    color: var(--color-default-secondary);
     font-size: 16px;
 }
 

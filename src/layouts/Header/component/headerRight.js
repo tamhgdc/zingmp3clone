@@ -1,7 +1,7 @@
 import { SVGHeader } from '~/images';
 
 function HeaderRight({ context, headerInfo }) {
-    const handleClick = (e) => {
+    const handleClick = () => {
         headerInfo.current.classList.toggle('hidden');
     };
 
@@ -34,8 +34,7 @@ function HeaderRight({ context, headerInfo }) {
                 </div>
             </button>
             <div className="header__info-last" style={{ position: 'relative' }}>
-                {/* <input type="checkbox" name="" id="check-btn-info" hidden/>  htmlFor="check-btn-info" */}
-                <div onClick={(e) => handleClick(e)} className="circle check-btn-info">
+                <div onClick={() => handleClick()} className="circle check-btn-info">
                     <img
                         className="check-btn-img"
                         src="https://s120-ava-talk-zmp3.zmdcdn.me/8/b/9/3/10/120/34dc3b79fce0b96839a43e2cf66ddfde.jpg"

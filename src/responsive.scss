@@ -63,11 +63,6 @@
             flex: 0.4;
         }
 
-        .detail-title,
-        .detail-artist {
-            max-width: 160px;
-        }
-
         .imgSelected {
             opacity: 0;
         }
@@ -117,6 +112,7 @@
 
         .svg-top100,
         .new-music-bg,
+        .bg-top100,
         .bg-alpha,
         .bg-alpha-1,
         .zing-chart .list-albums-album,
@@ -139,6 +135,10 @@
 
         .new-music .list-albums-album {
             display: none;
+        }
+
+        .btnImgBanner.loading {
+            height: 100px;
         }
     }
 }
@@ -222,14 +222,6 @@
         .svg-top100 {
             left: 10%;
             top: -10%;
-        }
-
-        .top100 {
-            .new-music-bg,
-            .bg-alpha,
-            .bg-alpha-1 {
-                top: -15%;
-            }
         }
 
         .banner {
@@ -316,6 +308,35 @@
         .navItem .iconHover {
             display: none !important;
         }
+
+        .modalMV-content {
+            flex-direction: column;
+            overflow-y: hidden;
+
+            .modalMV-video {
+                width: 100%;
+                height: unset;
+            }
+        }
+
+        .more-MV {
+            margin-left: unset;
+            overflow-y: overlay;
+            margin-top: 10px;
+        }
+
+        .more-MV-list {
+            overflow: unset;
+        }
+
+        .more-MV-title,
+        .more-MV-singer {
+            width: unset;
+        }
+
+        .modalMV {
+            padding: 20px 10px;
+        }
     }
 }
 
@@ -330,11 +351,31 @@
             margin-left: 200px;
         }
 
-        .detail-title,
-        .detail-artist {
-            max-width: 150px;
-        }
         .footer__right-control:not(:nth-child(4)) {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-height: 500px) {
+    .App {
+        .nav-content {
+            overflow-y: overlay;
+        }
+
+        .navScroll {
+            overflow: unset;
+        }
+    }
+}
+
+@media only screen and (max-height: 768px) and (max-width: 1024px) {
+    .App {
+        .modalMV-content .modalMV-video {
+            height: 100%;
+        }
+
+        .more-MV {
             display: none;
         }
     }

@@ -1,4 +1,6 @@
-function DataPageOne({ dataPage1Items, navigate, context, handleLike }) {
+import HandleLike from '~/component/HandleLike';
+
+function DataPageOne({ dataPage1Items, navigate, context }) {
     return (
         <>
             {dataPage1Items.length > 0 &&
@@ -22,12 +24,13 @@ function DataPageOne({ dataPage1Items, navigate, context, handleLike }) {
                                                     <div
                                                         className="btnLike"
                                                         onClick={() =>
-                                                            handleLike(
+                                                            HandleLike(
                                                                 items.encodeId,
                                                                 items.thumbnail,
                                                                 items.title,
                                                                 items.sortDescription,
                                                                 indexx,
+                                                                context,
                                                             )
                                                         }
                                                     >

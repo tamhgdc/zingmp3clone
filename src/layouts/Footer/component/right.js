@@ -41,8 +41,24 @@ function RightFooter({ context, audio }) {
 
         FCSaveLocalIndex(index);
     };
-
     const [playlist, setPlaylist] = useState(false);
+
+    document.onclick = (e) => {
+        if (e.target.closest('.footer__playlist')) {
+            setPlaylist(!playlist);
+            list.current.scrollTo({ top: songActive.current.offsetTop, behavior: 'smooth' });
+            return;
+        }
+        if (!e.target.closest('.footer__playlist-content')) {
+            if (playlist === true) {
+                setPlaylist(false);
+            }
+        }
+    };
+
+    const list = useRef();
+    const songActive = useRef();
+
     return (
         <>
             <div className="footerRight">
@@ -72,33 +88,35 @@ function RightFooter({ context, audio }) {
                     />
                 </div>
                 <div className="footer__playlist">
-                    <i
-                        ref={footerPlaylist}
-                        onClick={() => {
-                            setPlaylist(!playlist);
-                        }}
-                        className="icon ic-list-music"
-                    ></i>
+                    <i ref={footerPlaylist} className="icon ic-list-music"></i>
                 </div>
             </div>
-            <div className={playlist ? 'footer__playlist-content active' : 'footer__playlist-content'}>
+            <div ref={list} className={playlist ? 'footer__playlist-content active' : 'footer__playlist-content'}>
                 {context.songList[0].map((item, index) => {
                     return (
                         <div
+                            ref={context.indexSong === index ? songActive : null}
                             className={context.indexSong === index ? 'list-album-item songActive' : 'list-album-item'}
                             key={index}
                             onClick={() => {
-                                handleClick(index);
+                                if (item.streamingStatus !== 2) {
+                                    context.currentSong(index);
+                                    handleClick(index);
+                                }
                             }}
                         >
+                            {item.streamingStatus === 2 && <div className="modal-vip"></div>}
                             <div className="list-album-song-name song-album-item">
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
                                     <i className="icon list-album-header-icon ic-song"></i>
                                     <img className="song-album-item-img" src={item.thumbnailM} alt="" />
                                 </div>
                                 <div className="detail">
-                                    <span style={{ color: 'white', marginBottom: '5px' }}>{item.title}</span>
-                                    <span>{item.artistsNames}</span>
+                                    <div className="detail-title">
+                                        <span className="detail-title-name">{item.title}</span>
+                                        {item.streamingStatus === 2 && <span className="VIP">VIP</span>}
+                                    </div>
+                                    <span className="detail-artist">{item.artistsNames}</span>
                                 </div>
                             </div>
                         </div>

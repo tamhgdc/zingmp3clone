@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useLayoutEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Context from '~/context/context';
 import Album from './component/album';
@@ -8,6 +8,12 @@ import './myMusic.scss';
 function MyMusic() {
     const context = useContext(Context);
     const navigate = useNavigate();
+
+    useLayoutEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        context.setInputSearch('');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <div className="myMusic">

@@ -1,6 +1,10 @@
 .top100 {
-    margin-top: 200px;
     position: relative;
+}
+
+.bg-top100 {
+    position: relative;
+    height: 280px;
 }
 
 .top100 .new-music-bg,

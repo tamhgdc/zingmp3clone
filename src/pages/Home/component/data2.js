@@ -1,6 +1,7 @@
 import renderSinger from '~/component/FCRenderSinger';
+import HandleLike from '~/component/HandleLike';
 
-function DataPageTwo({ dataPage2Items, navigate, context, handleLike }) {
+function DataPageTwo({ dataPage2Items, navigate, context }) {
     return (
         <>
             {dataPage2Items.length > 0 &&
@@ -25,12 +26,13 @@ function DataPageTwo({ dataPage2Items, navigate, context, handleLike }) {
                                                     <div
                                                         className="btnLike"
                                                         onClick={() =>
-                                                            handleLike(
+                                                            HandleLike(
                                                                 items.encodeId,
                                                                 items.thumbnail,
                                                                 items.title,
                                                                 items.sortDescription,
                                                                 indexx,
+                                                                context,
                                                             )
                                                         }
                                                     >

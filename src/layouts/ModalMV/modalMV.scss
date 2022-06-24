@@ -88,10 +88,9 @@
 
 .modalMV-content {
     display: flex;
-    padding-top: 5px;
+
     .modalMV-video {
-        width: 69vw;
-        height: 100%;
+        width: 74%;
         border-radius: 8px;
     }
 }
@@ -177,19 +176,19 @@
     }
 
     .more-MV-title {
-        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
-        width: 147px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
     }
 
     .more-MV-singer {
         font-size: 12px;
         font-weight: 500;
         color: var(--color-default);
-        width: 147px;
-        white-space: nowrap;
         overflow: hidden;
-        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
     }
 }

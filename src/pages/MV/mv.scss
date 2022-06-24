@@ -91,6 +91,10 @@
     &:hover img {
         transform: scale(1.2);
     }
+
+    &.loading {
+        height: 25vh;
+    }
 }
 
 .MV-detail {

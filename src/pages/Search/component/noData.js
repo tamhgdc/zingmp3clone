@@ -1,7 +1,7 @@
-function NoData({ suggestTop, suggestSong, inputSearch, context }) {
+function NoData({ dataSearch, inputSearch, context }) {
     return (
         <>
-            {suggestSong === undefined && suggestTop === undefined
+            {dataSearch === undefined
                 ? context.inputSearch && (
                       <>
                           <div className="searchResult">

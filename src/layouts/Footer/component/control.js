@@ -13,7 +13,10 @@ function Control({ context, audio, setValue, value, currenttime, rangeInputSong,
                 context.setCheckPlaySong(true);
                 audio.current.play();
             } else {
-                alert('Chưa có bài hát nào được chọn');
+                context.setCheckPlaySong(false);
+                audio.current.pause();
+                context.pauseSong();
+                alert('Đợi xíu nhé');
             }
         }
     };

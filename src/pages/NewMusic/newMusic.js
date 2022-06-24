@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useLayoutEffect } from 'react';
 
 import Context from '~/context/context';
 import { GetNewMusic } from '~/services';
@@ -6,10 +6,17 @@ import './newMusic.css';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import Render from './component/render';
+import Loading from '~/component/LoadingListSong/loading';
 
 function NewMusic() {
     const context = useContext(Context);
     let data = GetNewMusic();
+
+    useLayoutEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        context.setInputSearch('');
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const handlePlayAll = () => {
         context.setCheckPlaySong(true);
@@ -35,7 +42,7 @@ function NewMusic() {
                 <i onClick={handlePlayAll} className="icon new-music__header-icon ic-play"></i>
             </div>
 
-            <Render data={data} context={context} />
+            {data.length !== 0 ? <Render data={data} context={context} /> : <Loading />}
         </div>
     );
 }

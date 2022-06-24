@@ -1,22 +1,7 @@
-const searchDefaultItem = [
-    {
-        title: 'thương em',
-    },
-    {
-        title: 'trọn vẹn nghĩa',
-    },
-    {
-        title: 'đôi mi',
-    },
-    {
-        title: 'karaoke',
-    },
-    {
-        title: 'radio',
-    },
-];
+import { GetRecommend } from '~/services';
 
 function SearchDefault({ context, navigate, searchInput, suggestSongs }) {
+    const [...searchDefaultItem] = GetRecommend();
     return (
         <>
             <h3 className="suggest-song-title">Đề xuất cho bạn</h3>
@@ -26,15 +11,16 @@ function SearchDefault({ context, navigate, searchInput, suggestSongs }) {
                         <li
                             key={index}
                             onClick={() => {
-                                searchInput.current.value = item.title;
+                                searchInput.current.value = item.keyword;
                                 suggestSongs.current.classList.add('hidden');
-                                context.setInputSearch(item.title);
-                                navigate(`/search/${item.title}`);
+                                context.setInputSearch(item.keyword);
+                                context.setKeywordSearch(item.keyword);
+                                navigate(`/search/${item.keyword}`);
                             }}
                             className="suggest-song-item"
                         >
                             <i className="icon suggest-song-icon ic-trend"></i>
-                            <span className="suggest-song-prev">{item.title}</span>
+                            <span className="suggest-song-prev">{item.keyword}</span>
                         </li>
                     );
                 })}

@@ -1,4 +1,4 @@
-function Control(indexPage, setIndexPage) {
+function Control({ indexPage, setIndexPage }) {
     return (
         <div className="MV-control">
             <div

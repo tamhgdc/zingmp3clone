@@ -1,106 +1,41 @@
-import axios from 'axios';
-import { useContext, useEffect, useState } from 'react';
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
-import ScrollLoadPage from '~/component/FCScrollLoadPage';
+import { useContext, useEffect, useLayoutEffect } from 'react';
 
-import secondsToHms from '~/component/FCTime';
 import Context from '~/context/context';
-import { useDebounce } from '~/hooks';
-import { URL } from '~/url';
+import Playlist from './component/playlsit';
+import Song from './component/song';
+import Video from './component/video';
 import './searchAll.css';
 
 function SearchAll() {
     const context = useContext(Context);
 
-    const [suggestSong, setSuggestSong] = useState([]);
+    // const inputSearch = document.querySelector('.searchInput');
 
-    const [loading, setLoading] = useState(false);
-
-    const inputSearch = document.querySelector('.searchInput');
-
-    const debouncedValue = useDebounce(context.inputSearch, 500);
-
-    let indexPage = 1;
-
-    const loadData = () => {
-        if (debouncedValue.length === 0) {
-            setSuggestSong([]);
-            return;
-        }
-        setLoading(true);
-        axios.get(`${URL}searchAll/${debouncedValue}/${indexPage}/20`).then(({ data }) => {
-            const newdata = [];
-            data.data.items.forEach((item) => newdata.push(item));
-            setSuggestSong((prev) => [...prev, ...newdata]);
-        });
-        setLoading(false);
-        indexPage++;
-    };
-
-    ScrollLoadPage(loadData, setLoading);
+    useLayoutEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, []);
 
     useEffect(() => {
         if (context.inputSearch.length === 0) {
-            context.setInputSearch(decodeURI(window.location.pathname.split('/')[2]));
+            context.setInputSearch(decodeURI(window.location.pathname.split('/')[3]));
+        }
+        if (context.keywordSearch.length === 0) {
+            context.setKeywordSearch(decodeURI(window.location.pathname.split('/')[3]));
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    const handleClick = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(suggestSong);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(suggestSong);
-        FCSaveLocalIndex(index);
-    };
 
     const searchResult = () => {
         return (
             <>
                 <div className="searchResult">
-                    {suggestSong !== undefined && suggestSong.length !== 0 && (
-                        <div className="songResult">
-                            <h3 style={{ fontSize: '20px', marginTop: '60px', marginBottom: '15px' }}>Bài Hát</h3>
-                            <ul className="boxSongResult">
-                                {suggestSong.map((item, index) => {
-                                    let time = secondsToHms(item.duration);
-                                    return (
-                                        <li
-                                            onClick={() => {
-                                                handleClick(index);
-                                            }}
-                                            key={index}
-                                            className={
-                                                context.indexSong === index &&
-                                                context.songList[0][index].encodeId === item.encodeId
-                                                    ? 'boxSongResultItem songActive'
-                                                    : 'boxSongResultItem'
-                                            }
-                                        >
-                                            <div className="songResultLink">
-                                                <div className="songResultDetail">
-                                                    <img className="songResultDetailImg" src={item.thumbnail} alt="" />
-                                                    <div className="boxSearchTopDetail">
-                                                        <h4 className="searchTopSinger">{item.title}</h4>
-                                                        <p className="searchTopTitle">{item.artistsNames}</p>
-                                                    </div>
-                                                </div>
-                                                <span className="songResultAlbum">
-                                                    {item.album !== undefined ? item.album.title : ''}
-                                                </span>
+                    {window.location.pathname.split('/')[2] === 'song' && <Song context={context} />}
 
-                                                <span className="songResultTime">{time}</span>
-                                            </div>
-                                        </li>
-                                    );
-                                })}
-                            </ul>
-                        </div>
-                    )}
-                    {suggestSong === undefined
+                    {window.location.pathname.split('/')[2] === 'playlist' && <Playlist context={context} />}
+
+                    {window.location.pathname.split('/')[2] === 'video' && <Video context={context} />}
+
+                    {/* {suggestSong === undefined
                         ? context.inputSearch && (
                               <>
                                   <div className="searchResult">
@@ -118,13 +53,13 @@ function SearchAll() {
                                       <h3 style={{ fontSize: '20px' }}>{'Nhập Từ Khóa Cần Tìm'}</h3>
                                   </div>
                               </div>
-                          )}
+                          )} */}
                 </div>
-                {loading && (
+                {/* {loading && (
                     <div style={{ display: 'flex' }}>
                         <div className="loader"></div>&emsp;<span>loading...</span>
                     </div>
-                )}
+                )} */}
             </>
         );
     };

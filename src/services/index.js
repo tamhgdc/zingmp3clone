@@ -62,4 +62,14 @@ function GetTop100() {
     return top100;
 }
 
-export { GetHomePage1, GetHomePage2, GetHomePage3, GetChart, GetNewMusic, GetTop100 };
+function GetRecommend() {
+    const [recommend, setRecommend] = useState([]);
+    useEffect(() => {
+        axios.get(`${URL}recommend-keyword`).then(({ data }) => {
+            setRecommend(data.data);
+        });
+    }, []);
+    return recommend;
+}
+
+export { GetHomePage1, GetHomePage2, GetHomePage3, GetChart, GetNewMusic, GetTop100, GetRecommend };

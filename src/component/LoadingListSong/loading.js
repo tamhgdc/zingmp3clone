@@ -1,9 +1,6 @@
 function Loading() {
     return (
         <>
-            <div className="album__detail-img loading">
-                <div className="album__img" />
-            </div>
             <div className="listAlbum">
                 <div className="list-album-header">
                     <span className="list-album-song-name">

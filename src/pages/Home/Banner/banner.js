@@ -5,7 +5,7 @@ import { URL } from '~/url';
 
 import './banner.css';
 
-function Banner() {
+function Banner({ loading }) {
     const navigate = useNavigate();
 
     const [dataPage1, setDataPage1] = useState([]);
@@ -130,7 +130,7 @@ function Banner() {
         );
     };
 
-    return <div className="row sm_gutter banner">{dataPage1.length !== 0 ? renderBanner() : loadding()}</div>;
+    return <div className="row sm_gutter banner">{loading ? renderBanner() : loadding()}</div>;
 }
 
 export default Banner;
