@@ -127,6 +127,10 @@ i.iconHover {
     margin: 14px 25px 0 25px;
 }
 
+.navFull .navScroll {
+    height: 48vh;
+}
+
 .navScroll {
     flex: 1;
     height: 34vh;
