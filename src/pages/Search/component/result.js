@@ -3,6 +3,7 @@ import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import secondsToHms from '~/component/FCTime';
 import HandleLike from '~/component/HandleLike';
+import NoData from './noData';
 
 function Result({ dataSearch, context }) {
     const navigate = useNavigate();
@@ -202,6 +203,10 @@ function Result({ dataSearch, context }) {
                     </div>
                 </div>
             )}
+
+            {dataSearch.songs === undefined &&
+                dataSearch.playlists === undefined &&
+                dataSearch.videos === undefined && <NoData context={context} />}
         </>
     );
 }

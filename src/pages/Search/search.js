@@ -6,7 +6,6 @@ import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
 import './search.css';
 import Result from './component/result';
-import NoData from './component/noData';
 
 function Search() {
     const context = useContext(Context);
@@ -72,8 +71,6 @@ function Search() {
                 <>
                     <div className="searchResult">
                         <Result dataSearch={dataSearch} context={context} />
-
-                        <NoData dataSearch={dataSearch} inputSearch={inputSearch} context={context} />
                     </div>
                 </>
             )}
