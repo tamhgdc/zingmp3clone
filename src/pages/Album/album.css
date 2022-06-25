@@ -172,6 +172,14 @@
     flex-direction: column;
     justify-content: center;
     margin-left: 10px;
+    overflow: hidden;
+}
+
+.song-album-item .detail span {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .songActive {

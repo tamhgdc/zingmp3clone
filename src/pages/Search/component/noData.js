@@ -1,12 +1,12 @@
 function NoData({ context }) {
     return (
         <>
-            {context.inputSearch ? (
+            {context.keywordSearch ? (
                 <>
                     <div className="searchResult">
                         <div className="topSearch">
                             <h3 style={{ fontSize: '20px' }}>
-                                {`Không Có Kết Quả Phù Hợp Cho "${context.inputSearch}"`}
+                                {`Không Có Kết Quả Phù Hợp Cho "${context.keywordSearch}"`}
                             </h3>
                         </div>
                     </div>

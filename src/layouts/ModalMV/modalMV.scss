@@ -115,7 +115,7 @@
 
 .more-MV-list {
     overflow-y: overlay;
-    height: 73vh;
+    height: calc(100% - 90px);
 
     .more-MV-item {
         display: flex;
