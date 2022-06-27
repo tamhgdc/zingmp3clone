@@ -29,13 +29,13 @@ function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitl
                     audio.current.src = '';
                     context.pauseSong();
                     audio.current.pause();
-                    if (context.indexSong < context.songList[0].length - 1) {
-                        context.currentSong(context.indexSong + 1);
-                        context.setCheckPlaySong(true);
-                    } else {
-                        context.currentSong(0);
-                        context.setCheckPlaySong(true);
-                    }
+                    // if (context.indexSong < context.songList[0].length - 1) {
+                    //     context.currentSong(context.indexSong + 1);
+                    //     context.setCheckPlaySong(true);
+                    // } else {
+                    //     context.currentSong(0);
+                    //     context.setCheckPlaySong(true);
+                    // }
                 });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
