@@ -1,18 +1,12 @@
-import { Link } from 'react-router-dom';
-import renderSinger from '~/component/FCRenderSinger';
 import HandleLike from '~/component/HandleLike';
-import routes from '~/config/routes';
 
-function DataPageThree({ dataPage3Items, navigate, context }) {
+function DataPageOne({ dataRender, navigate, context }) {
     return (
         <>
-            {dataPage3Items.length > 0 &&
-                [dataPage3Items[0]].map((item, index) => {
+            {dataRender.length > 0 &&
+                dataRender.map((item, index) => {
                     return (
-                        <div key={index} style={{ position: 'relative' }}>
-                            <Link to={routes.top100} className="see-all">
-                                <span>TẤT CẢ</span> <i className="icon see-all-icon ic-go-right"></i>
-                            </Link>
+                        <div key={index}>
                             <h2 className="pageTitle">{item.title}</h2>
                             <div className="row boxBanner">
                                 {item.items.slice(0, 5).map((items, indexx) => {
@@ -22,7 +16,6 @@ function DataPageThree({ dataPage3Items, navigate, context }) {
                                                 <div className="btnImgList">
                                                     <img className="imgList " src={items.thumbnail} alt="" />
                                                 </div>
-
                                                 <div
                                                     className="playSongMain"
                                                     onClick={() => navigate(`/detail/album/${items.encodeId}`)}
@@ -67,7 +60,7 @@ function DataPageThree({ dataPage3Items, navigate, context }) {
                                                 </div>
                                             </div>
                                             <h3 className="songName">{items.title}</h3>
-                                            {renderSinger(items.artists)}
+                                            <h5 className="songerName">{items.sortDescription}</h5>
                                         </div>
                                     );
                                 })}
@@ -79,4 +72,4 @@ function DataPageThree({ dataPage3Items, navigate, context }) {
     );
 }
 
-export default DataPageThree;
+export default DataPageOne;

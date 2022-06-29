@@ -11,6 +11,7 @@ const routes = {
     newmusic: '/newmusic',
     top100: '/top100',
     mv: '/mv/:link/:code',
+    hub: '/hub',
 };
 
 export default routes;

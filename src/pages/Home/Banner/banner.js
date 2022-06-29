@@ -1,20 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { URL } from '~/url';
 
 import './banner.css';
 
-function Banner({ loading }) {
+function Banner({ loading, dataBaner }) {
     const navigate = useNavigate();
-
-    const [dataPage1, setDataPage1] = useState([]);
-
-    useEffect(() => {
-        axios.get(`${URL}home/1`).then(({ data }) => {
-            setDataPage1(data.data.items[0].items);
-        });
-    }, []);
 
     const [imgLeft, setImgLeft] = useState(1);
     const [imgSelected, setImgSelected] = useState(2);
@@ -24,13 +14,13 @@ function Banner({ loading }) {
         setImgLeft(imgLeft + 1);
         setImgSelected(imgSelected + 1);
         setImgRight(imgRight + 1);
-        if (imgLeft + 1 === dataPage1.length) {
+        if (imgLeft + 1 === dataBaner.length) {
             setImgLeft(0);
         }
-        if (imgSelected + 1 === dataPage1.length) {
+        if (imgSelected + 1 === dataBaner.length) {
             setImgSelected(0);
         }
-        if (imgRight + 1 === dataPage1.length) {
+        if (imgRight + 1 === dataBaner.length) {
             setImgRight(0);
         }
     };
@@ -40,13 +30,13 @@ function Banner({ loading }) {
         setImgSelected(imgSelected - 1);
         setImgRight(imgRight - 1);
         if (imgLeft - 1 === 0) {
-            setImgLeft(dataPage1.length - 1);
+            setImgLeft(dataBaner.length - 1);
         }
         if (imgSelected - 1 === 0) {
-            setImgSelected(dataPage1.length - 1);
+            setImgSelected(dataBaner.length - 1);
         }
         if (imgRight - 1 === 0) {
-            setImgRight(dataPage1.length - 1);
+            setImgRight(dataBaner.length - 1);
         }
     };
 
@@ -94,7 +84,7 @@ function Banner({ loading }) {
         if (type === 4) {
             navigate(`/detail/album/${encodeId}`);
         } else {
-            alert('Đây không phải album. Chức năng đang được phát triển');
+            alert('Chức năng đang được phát triển');
         }
     };
 
@@ -107,7 +97,7 @@ function Banner({ loading }) {
                 <div onClick={handleNextBanner} className="btnBanner nextBtnBanner ">
                     <i className="icon ic-go-right"></i>
                 </div>
-                {dataPage1.map((item, index) => {
+                {dataBaner.map((item, index) => {
                     return (
                         <div
                             onClick={() => handleclick(item.encodeId, item.type)}
@@ -129,6 +119,8 @@ function Banner({ loading }) {
             </>
         );
     };
+
+    console.log(loading);
 
     return <div className="row sm_gutter banner">{loading ? renderBanner() : loadding()}</div>;
 }

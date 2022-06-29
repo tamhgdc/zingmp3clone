@@ -2,31 +2,11 @@ import { useEffect, useState } from 'react';
 import { URL } from '~/url';
 import axios from 'axios';
 
-function GetHomePage1() {
+function GetHomePage() {
     const [datas, setDatas] = useState([]);
     useEffect(() => {
-        axios.get(`${URL}home/1`).then(({ data }) => {
-            setDatas(data.data.items);
-        });
-    }, []);
-    return datas;
-}
-
-function GetHomePage2() {
-    const [datas, setDatas] = useState([]);
-    useEffect(() => {
-        axios.get(`${URL}home/2`).then(({ data }) => {
-            setDatas(data.data.items);
-        });
-    }, []);
-    return datas;
-}
-
-function GetHomePage3() {
-    const [datas, setDatas] = useState([]);
-    useEffect(() => {
-        axios.get(`${URL}home/3`).then(({ data }) => {
-            setDatas(data.data.items);
+        axios.get(`${URL}home`).then(({ data }) => {
+            setDatas([data.data.items]);
         });
     }, []);
     return datas;
@@ -72,4 +52,4 @@ function GetRecommend() {
     return recommend;
 }
 
-export { GetHomePage1, GetHomePage2, GetHomePage3, GetChart, GetNewMusic, GetTop100, GetRecommend };
+export { GetHomePage, GetChart, GetNewMusic, GetTop100, GetRecommend };

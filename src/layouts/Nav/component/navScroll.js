@@ -9,7 +9,7 @@ const navScroll = [
     },
     {
         name: 'Thể Loại',
-        link: '#',
+        link: config.routes.hub,
         icon: 'icon  ic-24-GenreTab',
     },
     {

@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.new-music .list-album-header {
+    display: none;
+}
+
 .new-music .loading {
     width: 100% !important;
 }

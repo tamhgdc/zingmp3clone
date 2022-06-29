@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.zing-chart .list-album-header {
+    display: none;
+}
+
 .zing-chart .listAlbum {
     margin-left: unset;
 }
