@@ -4,22 +4,11 @@ function Control({ indexPage, setIndexPage }) {
             <div
                 className="MV-btn"
                 onClick={() => {
-                    if (indexPage > 1) {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        setIndexPage(indexPage - 1);
-                    }
-                }}
-            >
-                <i className="icon ic-go-left"></i>
-            </div>
-            <div
-                className="MV-btn"
-                onClick={() => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // window.scrollTo({ top: 0, behavior: 'smooth' });
                     setIndexPage(indexPage + 1);
                 }}
             >
-                <i className="icon ic-go-right"></i>
+                Xem thêm
             </div>
         </div>
     );

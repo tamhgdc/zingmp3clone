@@ -25,17 +25,10 @@ function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitl
                 .catch((err) => {
                     rangeInputSong.current.style.backgroundSize = 0;
                     setValue(0);
-                    alert('Lỗi khi tải bài hát. Nguyên nhân do dữ liệu!');
+                    alert('Lỗi khi tải bài hát. Nguyên nhân do dữ liệu! Vui lòng chọn bài hát Việt Nam');
                     audio.current.src = '';
                     context.pauseSong();
                     audio.current.pause();
-                    // if (context.indexSong < context.songList[0].length - 1) {
-                    //     context.currentSong(context.indexSong + 1);
-                    //     context.setCheckPlaySong(true);
-                    // } else {
-                    //     context.currentSong(0);
-                    //     context.setCheckPlaySong(true);
-                    // }
                 });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

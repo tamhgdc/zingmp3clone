@@ -6,6 +6,8 @@ import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
 import './search.css';
 import Result from './component/result';
+import { SVGLoading } from '~/images';
+import Loading from '~/component/FCLoaing';
 
 function Search() {
     const context = useContext(Context);
@@ -16,21 +18,6 @@ function Search() {
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, []);
-
-    const inputSearch = document.querySelector('.searchInput');
-    const iconSearch = document.querySelector('.iconSearch');
-    try {
-        inputSearch.onkeydown = function (e) {
-            if (e.keyCode === 13) {
-                context.setInputSearch(e.target.value);
-                inputSearch.blur();
-            }
-        };
-
-        iconSearch.onclick = function () {
-            context.setInputSearch(inputSearch.value);
-        };
-    } catch (error) {}
 
     useEffect(() => {
         if (context.inputSearch.length === 0) {
@@ -64,9 +51,7 @@ function Search() {
     return (
         <>
             {loading ? (
-                <div style={{ display: 'flex' }}>
-                    <div className="loader"></div>&emsp;<span>loading...</span>
-                </div>
+                <Loading />
             ) : (
                 <>
                     <div className="searchResult">

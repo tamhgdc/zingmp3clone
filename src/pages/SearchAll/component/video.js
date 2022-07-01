@@ -1,22 +1,17 @@
 import axios from 'axios';
-import { useState } from 'react';
+import Loading from '~/component/FCLoaing';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
-import LoadingVideo from './loadingVideo';
 
-function Video({ context }) {
-    const [dataVideo, setDataVideo] = useState([]);
-
-    const [loading, setLoading] = useState(false);
-
+function Video({ context, loading, setLoading, dataList, setDataList }) {
     const debouncedValue = useDebounce(context.inputSearch, 500);
 
     let indexPage = 1;
 
     const loadDataVideo = () => {
         if (debouncedValue.length === 0) {
-            setDataVideo([]);
+            setDataList([]);
             return;
         }
         setLoading(true);
@@ -26,7 +21,7 @@ function Video({ context }) {
                 const newdata = [];
                 if (data.data.items !== undefined) {
                     data.data.items.map((item) => newdata.push(item));
-                    setDataVideo((prev) => [...prev, ...newdata]);
+                    setDataList((prev) => [...prev, ...newdata]);
                 }
             })
             .finally(() => {
@@ -53,12 +48,11 @@ function Video({ context }) {
 
     return (
         <>
-            {dataVideo !== undefined && dataVideo.length !== 0 && (
+            {dataList !== undefined && dataList.length !== 0 && (
                 <div className="songResult">
                     <h3 className="songResult-title">MV</h3>
                     <div className="row MV-content">
-                        {dataVideo.map((item, index) => {
-                            console.log(item.streamingStatus);
+                        {dataList.map((item, index) => {
                             return (
                                 <div key={index} className="col sm_gutter l_4 m_6 c_12 render-MV-item">
                                     <div className="MV-img">
@@ -91,10 +85,11 @@ function Video({ context }) {
                                 </div>
                             );
                         })}
-                        {loading && <LoadingVideo />}
                     </div>
                 </div>
             )}
+
+            {loading && dataList.length !== 0 && <Loading height="unset" />}
         </>
     );
 }

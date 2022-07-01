@@ -1,4 +1,5 @@
-import { useContext, useEffect, useLayoutEffect } from 'react';
+import { useContext, useEffect, useLayoutEffect, useState } from 'react';
+import Loading from '~/component/FCLoaing';
 
 import Context from '~/context/context';
 import Playlist from './component/playlsit';
@@ -9,7 +10,8 @@ import './searchAll.css';
 function SearchAll() {
     const context = useContext(Context);
 
-    // const inputSearch = document.querySelector('.searchInput');
+    const [loading, setLoading] = useState(false);
+    const [dataList, setDataList] = useState([]);
 
     useLayoutEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,37 +31,37 @@ function SearchAll() {
         return (
             <>
                 <div className="searchResult">
-                    {window.location.pathname.split('/')[2] === 'song' && <Song context={context} />}
+                    {window.location.pathname.split('/')[2] === 'song' && (
+                        <Song
+                            context={context}
+                            loading={loading}
+                            setLoading={setLoading}
+                            dataList={dataList}
+                            setDataList={setDataList}
+                        />
+                    )}
 
-                    {window.location.pathname.split('/')[2] === 'playlist' && <Playlist context={context} />}
+                    {window.location.pathname.split('/')[2] === 'playlist' && (
+                        <Playlist
+                            context={context}
+                            loading={loading}
+                            setLoading={setLoading}
+                            dataList={dataList}
+                            setDataList={setDataList}
+                        />
+                    )}
 
-                    {window.location.pathname.split('/')[2] === 'video' && <Video context={context} />}
-
-                    {/* {suggestSong === undefined
-                        ? context.inputSearch && (
-                              <>
-                                  <div className="searchResult">
-                                      <div className="topSearch">
-                                          <h3 style={{ fontSize: '20px' }}>
-                                              {`Không Có Kết Quả Phù Hợp Cho "${inputSearch.value}"`}
-                                          </h3>
-                                      </div>
-                                  </div>
-                              </>
-                          )
-                        : !context.inputSearch && (
-                              <div className="searchResult">
-                                  <div className="topSearch">
-                                      <h3 style={{ fontSize: '20px' }}>{'Nhập Từ Khóa Cần Tìm'}</h3>
-                                  </div>
-                              </div>
-                          )} */}
+                    {window.location.pathname.split('/')[2] === 'video' && (
+                        <Video
+                            context={context}
+                            loading={loading}
+                            setLoading={setLoading}
+                            dataList={dataList}
+                            setDataList={setDataList}
+                        />
+                    )}
+                    {loading && dataList.length === 0 && <Loading height="unset" />}
                 </div>
-                {/* {loading && (
-                    <div style={{ display: 'flex' }}>
-                        <div className="loader"></div>&emsp;<span>loading...</span>
-                    </div>
-                )} */}
             </>
         );
     };

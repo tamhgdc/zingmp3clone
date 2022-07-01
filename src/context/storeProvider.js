@@ -44,6 +44,11 @@ function StoreProvider({ children }) {
         setIndexSong(index);
     };
 
+    const [dataHome, setDataHome] = useState([]);
+    const [dataChart, setDataChart] = useState([]);
+    const [dataNewSong, setDataNewSong] = useState([]);
+    const [dataTop100, setDataTop100] = useState([]);
+
     const data = {
         play,
         togglePlay,
@@ -65,6 +70,15 @@ function StoreProvider({ children }) {
         setEncodeIdMV,
         checkPlaySong,
         setCheckPlaySong,
+
+        dataHome,
+        setDataHome,
+        dataChart,
+        setDataChart,
+        dataNewSong,
+        setDataNewSong,
+        dataTop100,
+        setDataTop100,
     };
     return <Context.Provider value={data}>{children}</Context.Provider>;
 }

@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useState } from 'react';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
@@ -8,18 +7,14 @@ import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
 import LoadingSong from './loadingSong';
 
-function Song({ context }) {
-    const [suggestSong, setSuggestSong] = useState([]);
-
-    const [loading, setLoading] = useState(false);
-
+function Song({ context, loading, setLoading, dataList, setDataList }) {
     const debouncedValue = useDebounce(context.inputSearch, 500);
 
     let indexPage = 1;
 
     const loadDataSong = () => {
         if (debouncedValue.length === 0) {
-            setSuggestSong([]);
+            setDataList([]);
             return;
         }
         setLoading(true);
@@ -29,7 +24,7 @@ function Song({ context }) {
                 const newdata = [];
                 if (data.data.items !== undefined) {
                     data.data.items.map((item) => newdata.push(item));
-                    setSuggestSong((prev) => [...prev, ...newdata]);
+                    setDataList((prev) => [...prev, ...newdata]);
                 }
             })
             .finally(() => {
@@ -42,21 +37,21 @@ function Song({ context }) {
 
     const handleClick = (index) => {
         context.setCheckPlaySong(true);
-        context.addSongList(suggestSong);
+        context.addSongList(dataList);
         context.playSong();
         context.currentSong(index);
 
-        FCSaveLocalList(suggestSong);
+        FCSaveLocalList(dataList);
         FCSaveLocalIndex(index);
     };
 
     return (
         <>
-            {suggestSong !== undefined && suggestSong.length !== 0 && (
+            {dataList !== undefined && dataList.length !== 0 && (
                 <div className="songResult">
                     <h3 style={{ fontSize: '20px', marginTop: '60px', marginBottom: '15px' }}>Bài Hát</h3>
                     <div className="listAlbum">
-                        {suggestSong.map((item, index) => {
+                        {dataList.map((item, index) => {
                             let time = secondsToHms(item.duration);
                             return (
                                 <div
@@ -98,9 +93,10 @@ function Song({ context }) {
                             );
                         })}
                     </div>
-                    {loading && <LoadingSong />}
                 </div>
             )}
+
+            {loading && <LoadingSong />}
         </>
     );
 }

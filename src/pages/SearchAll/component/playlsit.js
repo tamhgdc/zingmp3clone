@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import HandleLike from '~/component/HandleLike';
@@ -7,12 +6,8 @@ import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
 import LoaddingPlaylist from './loadingPlaylist';
 
-function Playlist({ context }) {
-    const [dataPlaylist, setDataPlaylist] = useState([]);
-
+function Playlist({ context, loading, setLoading, dataList, setDataList }) {
     const navigate = useNavigate();
-
-    const [loading, setLoading] = useState(false);
 
     const debouncedValue = useDebounce(context.inputSearch, 500);
 
@@ -20,7 +15,7 @@ function Playlist({ context }) {
 
     const loadDataPlaylist = () => {
         if (debouncedValue.length === 0) {
-            setDataPlaylist([]);
+            setDataList([]);
             return;
         }
         setLoading(true);
@@ -30,7 +25,7 @@ function Playlist({ context }) {
                 const newdata = [];
                 if (data.data.items !== undefined) {
                     data.data.items.map((item) => newdata.push(item));
-                    setDataPlaylist((prev) => [...prev, ...newdata]);
+                    setDataList((prev) => [...prev, ...newdata]);
                 }
             })
             .finally(() => {
@@ -43,11 +38,11 @@ function Playlist({ context }) {
 
     return (
         <>
-            {dataPlaylist !== undefined && dataPlaylist.length !== 0 && (
+            {dataList !== undefined && dataList.length !== 0 && (
                 <div className="songResult">
                     <h3 className="songResult-title">Playlists</h3>
                     <div className="row boxBanner">
-                        {dataPlaylist.map((items, indexx) => {
+                        {dataList.map((items, indexx) => {
                             return (
                                 <div className="col sm_gutter l_2_4 m_3 c_4 render-album-item " key={indexx}>
                                     <div className="bannerImg">

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from 'axios';
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -45,12 +46,29 @@ function MV() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        setLoading(true);
         setDataMV([]);
+        setCheckEnd(false);
+    }, [code]);
+
+    const [checkEnd, setCheckEnd] = useState(false);
+
+    useEffect(() => {
+        setLoading(true);
         axios
             .get(`${URL}listMV/${code}/${indexPage}/30`)
             .then(({ data }) => {
-                setDataMV(data.data.items);
+                if (data.data.items === undefined) {
+                    alert('Đã hết dữ liệu');
+                    setDataMV(dataMV);
+                    setCheckEnd(true);
+                    return;
+                }
+                const newdata = [];
+                if (data.data.items !== undefined) {
+                    setCheckEnd(false);
+                    data.data.items.map((item) => newdata.push(item));
+                    setDataMV((prev) => [...prev, ...newdata]);
+                }
             })
             .catch((error) => {
                 console.log(error);
@@ -62,7 +80,6 @@ function MV() {
 
     useEffect(() => {
         context.setInputSearch('');
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const audio = document.querySelector('audio');
@@ -79,9 +96,15 @@ function MV() {
                 navigation={navigation}
             />
 
-            {dataMV.length > 0 ? <Content dataMV={dataMV} context={context} audio={audio} /> : <Loading />}
+            {dataMV.length > 0 ? (
+                <Content dataMV={dataMV} context={context} audio={audio} loading={loading} />
+            ) : (
+                <div className="row MV-content">
+                    <Loading />
+                </div>
+            )}
 
-            <Control indexPage={indexPage} setIndexPage={setIndexPage} />
+            {!checkEnd && <Control indexPage={indexPage} setIndexPage={setIndexPage} />}
         </div>
     );
 }

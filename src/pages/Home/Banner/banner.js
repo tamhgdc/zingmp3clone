@@ -120,8 +120,6 @@ function Banner({ loading, dataBaner }) {
         );
     };
 
-    console.log(loading);
-
     return <div className="row sm_gutter banner">{loading ? renderBanner() : loadding()}</div>;
 }
 
