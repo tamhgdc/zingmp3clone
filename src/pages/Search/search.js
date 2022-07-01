@@ -6,7 +6,6 @@ import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
 import './search.css';
 import Result from './component/result';
-import { SVGLoading } from '~/images';
 import Loading from '~/component/FCLoading';
 
 function Search() {

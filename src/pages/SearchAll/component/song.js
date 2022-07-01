@@ -1,7 +1,6 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import HandlePlay from '~/component/FCHandlePlay';
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import secondsToHms from '~/component/FCTime';
 import { useDebounce } from '~/hooks';
@@ -12,6 +11,14 @@ function Song({ context, loading, setLoading, dataList, setDataList }) {
     const debouncedValue = useDebounce(context.inputSearch, 500);
 
     let indexPage = 1;
+
+    useEffect(() => {
+        if (context.inputSearch.length === 0) {
+            context.setKeywordSearch(decodeURI(window.location.pathname.split('/')[3]));
+            context.setInputSearch(decodeURI(window.location.pathname.split('/')[3]));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const loadDataSong = () => {
         if (debouncedValue.length === 0) {
@@ -86,8 +93,6 @@ function Song({ context, loading, setLoading, dataList, setDataList }) {
                     </div>
                 </div>
             )}
-
-            {loading && <LoadingSong />}
         </>
     );
 }

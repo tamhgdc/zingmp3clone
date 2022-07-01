@@ -1,7 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
 import HandlePlay from '~/component/FCHandlePlay';
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
 import secondsToHms from '~/component/FCTime';
 import HandleLike from '~/component/HandleLike';
 import NoData from './noData';

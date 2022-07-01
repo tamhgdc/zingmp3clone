@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import HandleLike from '~/component/HandleLike';
@@ -8,6 +9,14 @@ import LoaddingPlaylist from './loadingPlaylist';
 
 function Playlist({ context, loading, setLoading, dataList, setDataList }) {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (context.inputSearch.length === 0) {
+            context.setKeywordSearch(decodeURI(window.location.pathname.split('/')[3]));
+            context.setInputSearch(decodeURI(window.location.pathname.split('/')[3]));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const debouncedValue = useDebounce(context.inputSearch, 500);
 

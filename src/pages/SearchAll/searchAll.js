@@ -21,9 +21,6 @@ function SearchAll() {
         if (context.inputSearch.length === 0) {
             context.setInputSearch(decodeURI(window.location.pathname.split('/')[3]));
         }
-        if (context.keywordSearch.length === 0) {
-            context.setKeywordSearch(decodeURI(window.location.pathname.split('/')[3]));
-        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -60,7 +57,7 @@ function SearchAll() {
                             setDataList={setDataList}
                         />
                     )}
-                    {loading && dataList.length === 0 && <Loading height="unset" />}
+                    {loading && <Loading height="unset" />}
                 </div>
             </>
         );

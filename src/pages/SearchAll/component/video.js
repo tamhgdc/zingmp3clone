@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useEffect } from 'react';
 import Loading from '~/component/FCLoading';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import { useDebounce } from '~/hooks';
@@ -8,6 +9,14 @@ function Video({ context, loading, setLoading, dataList, setDataList }) {
     const debouncedValue = useDebounce(context.inputSearch, 500);
 
     let indexPage = 1;
+
+    useEffect(() => {
+        if (context.inputSearch.length === 0) {
+            context.setKeywordSearch(decodeURI(window.location.pathname.split('/')[3]));
+            context.setInputSearch(decodeURI(window.location.pathname.split('/')[3]));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const loadDataVideo = () => {
         if (debouncedValue.length === 0) {
