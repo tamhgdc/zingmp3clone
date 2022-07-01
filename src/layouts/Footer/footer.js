@@ -11,6 +11,8 @@ function Footer() {
     const context = useContext(Context);
 
     const [value, setValue] = useState(0);
+    const [loading, setLoading] = useState(false);
+    console.log(loading);
 
     const audio = useRef();
     const currenttime = useRef();
@@ -22,7 +24,7 @@ function Footer() {
     const btnPrev = useRef();
     const btnNext = useRef();
 
-    Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitle, footerInfoSinger, totalTime);
+    Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitle, footerInfoSinger, totalTime, setLoading);
 
     return (
         <footer className="footer">
@@ -43,6 +45,7 @@ function Footer() {
                 btnPrev={btnPrev}
                 btnNext={btnNext}
                 totalTime={totalTime}
+                loading={loading}
             />
 
             <RightFooter context={context} audio={audio} />

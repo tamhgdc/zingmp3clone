@@ -3,11 +3,22 @@ import { useEffect } from 'react';
 import secondsToHms from '~/component/FCTime';
 import { URL } from '~/url';
 
-function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitle, footerInfoSinger, totalTime) {
+function Api(
+    context,
+    audio,
+    setValue,
+    rangeInputSong,
+    footerImg,
+    footerInfoTitle,
+    footerInfoSinger,
+    totalTime,
+    setLoading,
+) {
     useEffect(() => {
         if (context.songList[0].length > 0) {
             const song = context.songList ? context.songList[0][context.indexSong] : {};
             audio.current.pause();
+            setLoading(true);
             axios
                 .get(`${URL}song/${context.songList[0][context.indexSong].encodeId}`)
                 .then(({ data }) => {
@@ -21,6 +32,7 @@ function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitl
                         audio.current.play();
                         context.playSong();
                     }
+                    setLoading(false);
                 })
                 .catch((err) => {
                     rangeInputSong.current.style.backgroundSize = 0;
@@ -29,6 +41,7 @@ function Api(context, audio, setValue, rangeInputSong, footerImg, footerInfoTitl
                     audio.current.src = '';
                     context.pauseSong();
                     audio.current.pause();
+                    setLoading(false);
                 });
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps

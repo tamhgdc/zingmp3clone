@@ -1,8 +1,20 @@
 import { useState } from 'react';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import secondsToHms from '~/component/FCTime';
+import { SVGLoadingSong } from '~/images';
 
-function Control({ context, audio, setValue, value, currenttime, rangeInputSong, btnPrev, btnNext, totalTime }) {
+function Control({
+    context,
+    audio,
+    setValue,
+    value,
+    currenttime,
+    rangeInputSong,
+    btnPrev,
+    btnNext,
+    totalTime,
+    loading,
+}) {
     const handlePlay = () => {
         context.togglePlay();
         if (context.play) {
@@ -165,12 +177,26 @@ function Control({ context, audio, setValue, value, currenttime, rangeInputSong,
                     <i className="icon ic-pre"></i>
                 </span>
 
-                <span className={context.play ? 'btn-control-toggle hidden' : 'btn-control-toggle '}>
-                    <i className="icon footer__control-icon ic-play-circle-outline" onClick={handlePlay}></i>
-                </span>
-                <span className={context.play ? 'btn-control-toggle ' : 'btn-control-toggle hidden'}>
-                    <i className="icon footer__control-icon  ic-pause-circle-outline" onClick={handlePlay}></i>
-                </span>
+                {!loading ? (
+                    <>
+                        <span className={context.play ? 'btn-control-toggle hidden' : 'btn-control-toggle '}>
+                            <i className="icon footer__control-icon ic-play-circle-outline" onClick={handlePlay}></i>
+                        </span>
+                        <span className={context.play ? 'btn-control-toggle ' : 'btn-control-toggle hidden'}>
+                            <i className="icon footer__control-icon  ic-pause-circle-outline" onClick={handlePlay}></i>
+                        </span>
+                    </>
+                ) : (
+                    <>
+                        <span style={{ margin: 'unset' }} className="btn-control-toggle"></span>
+                        <span className="btn-control-toggle">
+                            <i className="icon">
+                                <SVGLoadingSong />
+                            </i>
+                        </span>
+                    </>
+                )}
+
                 <span ref={btnNext} className="btnControl" onClick={() => handleNext()}>
                     <i className="icon ic-next"></i>
                 </span>
