@@ -1,18 +1,7 @@
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
+import HandlePlay from '~/component/FCHandlePlay';
 import secondsToHms from '~/component/FCTime';
 
 function Top10({ chart, context, slice }) {
-    const handelPlay = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(chart.RTChart.items);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(chart.RTChart.items);
-        FCSaveLocalIndex(index);
-    };
-
     return (
         <>
             <>
@@ -28,7 +17,7 @@ function Top10({ chart, context, slice }) {
                                 }
                                 key={index}
                                 onClick={() => {
-                                    handelPlay(index);
+                                    HandlePlay({ data: chart.RTChart.items, index, context });
                                 }}
                             >
                                 <div className="list-album-song-name song-album-item">

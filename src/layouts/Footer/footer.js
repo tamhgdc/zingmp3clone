@@ -12,7 +12,6 @@ function Footer() {
 
     const [value, setValue] = useState(0);
     const [loading, setLoading] = useState(false);
-    console.log(loading);
 
     const audio = useRef();
     const currenttime = useRef();

@@ -1,6 +1,6 @@
 // import Loading from '~/component/LoadingListMV/loading';
 
-import Loading from '~/component/FCLoaing';
+import Loading from '~/component/FCLoading';
 
 function Content({ dataMV, context, audio, loading }) {
     const handleMV = (encodeId) => {

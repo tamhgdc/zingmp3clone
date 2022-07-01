@@ -1,18 +1,7 @@
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
+import HandlePlay from '~/component/FCHandlePlay';
 import secondsToHms from '~/component/FCTime';
 
 function Render({ data, context }) {
-    const handelPlay = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(data.items);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(data.items);
-        FCSaveLocalIndex(index);
-    };
-
     return (
         <div style={{ marginTop: '30px' }}>
             {data.length !== 0 &&
@@ -27,7 +16,7 @@ function Render({ data, context }) {
                             }
                             key={index}
                             onClick={() => {
-                                handelPlay(index);
+                                HandlePlay({ data: data.items, index, context });
                             }}
                         >
                             <div className="list-album-song-name song-album-item">

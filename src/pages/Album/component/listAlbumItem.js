@@ -1,18 +1,7 @@
-import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
-import FCSaveLocalList from '~/component/FCSaveLocalList';
+import HandlePlay from '~/component/FCHandlePlay';
 import secondsToHms from '~/component/FCTime';
 
 function ListAlbumItem({ datas, dataSong, context }) {
-    const handleClick = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(dataSong.items);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(dataSong.items);
-        FCSaveLocalIndex(index);
-    };
-
     return (
         <>
             <div className="album__detail-img">
@@ -54,7 +43,7 @@ function ListAlbumItem({ datas, dataSong, context }) {
                             onClick={() => {
                                 if (item.streamingStatus !== 2) {
                                     context.currentSong(index);
-                                    handleClick(index);
+                                    HandlePlay({ data: dataSong.items, index, context });
                                 }
                             }}
                         >

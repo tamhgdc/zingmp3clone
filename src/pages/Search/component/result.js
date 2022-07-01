@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import HandlePlay from '~/component/FCHandlePlay';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import secondsToHms from '~/component/FCTime';
@@ -7,16 +8,6 @@ import NoData from './noData';
 
 function Result({ dataSearch, context }) {
     const navigate = useNavigate();
-
-    const handleClick = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(dataSearch.songs);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(dataSearch.songs);
-        FCSaveLocalIndex(index);
-    };
 
     const audio = document.querySelector('audio');
 
@@ -55,7 +46,7 @@ function Result({ dataSearch, context }) {
                                     onClick={() => {
                                         if (item.streamingStatus !== 2) {
                                             context.currentSong(index);
-                                            handleClick(index);
+                                            HandlePlay({ data: dataSearch.songs, index, context });
                                         }
                                     }}
                                 >

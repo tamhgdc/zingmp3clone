@@ -1,5 +1,5 @@
 import { useContext, useEffect, useLayoutEffect, useState } from 'react';
-import Loading from '~/component/FCLoaing';
+import Loading from '~/component/FCLoading';
 
 import Context from '~/context/context';
 import Playlist from './component/playlsit';

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import HandlePlay from '~/component/FCHandlePlay';
 import FCSaveLocalIndex from '~/component/FCSaveLocalIndex';
 import FCSaveLocalList from '~/component/FCSaveLocalList';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
@@ -35,16 +36,6 @@ function Song({ context, loading, setLoading, dataList, setDataList }) {
 
     ScrollLoadPage(loadDataSong);
 
-    const handleClick = (index) => {
-        context.setCheckPlaySong(true);
-        context.addSongList(dataList);
-        context.playSong();
-        context.currentSong(index);
-
-        FCSaveLocalList(dataList);
-        FCSaveLocalIndex(index);
-    };
-
     return (
         <>
             {dataList !== undefined && dataList.length !== 0 && (
@@ -65,7 +56,7 @@ function Song({ context, loading, setLoading, dataList, setDataList }) {
                                     onClick={() => {
                                         if (item.streamingStatus !== 2) {
                                             context.currentSong(index);
-                                            handleClick(index);
+                                            HandlePlay({ data: dataList, index, context });
                                         }
                                     }}
                                 >

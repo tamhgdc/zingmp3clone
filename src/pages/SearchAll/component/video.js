@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Loading from '~/component/FCLoaing';
+import Loading from '~/component/FCLoading';
 import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
