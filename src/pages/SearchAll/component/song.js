@@ -5,7 +5,6 @@ import ScrollLoadPage from '~/component/FCScrollLoadPage';
 import secondsToHms from '~/component/FCTime';
 import { useDebounce } from '~/hooks';
 import { URL } from '~/url';
-import LoadingSong from './loadingSong';
 
 function Song({ context, loading, setLoading, dataList, setDataList }) {
     const debouncedValue = useDebounce(context.inputSearch, 500);
