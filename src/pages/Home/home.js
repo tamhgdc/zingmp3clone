@@ -23,7 +23,7 @@ function Home() {
     document.title = 'Zing MP3 | Nghe tải nhạc chất lượng cao trên desktop, mobile và TV';
 
     const dataBaner = dataPage !== undefined && dataPage[0].items;
-    const dataRender = dataPage !== undefined && [dataPage[3], dataPage[4], dataPage[6], dataPage[10]];
+    const dataRender = dataPage !== undefined && [dataPage[3], dataPage[4], dataPage[5], dataPage[9], dataPage[12]];
 
     const render = () => {
         return (

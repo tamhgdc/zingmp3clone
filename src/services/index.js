@@ -10,6 +10,7 @@ function GetHomePage() {
     useEffect(() => {
         if (context.dataHome.length === 0) {
             axios.get(`${URL}home`).then(({ data }) => {
+                console.log(data);
                 setDatas([data.data.items]);
                 context.setDataHome(data.data.items);
             });
