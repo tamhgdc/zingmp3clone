@@ -69,3 +69,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 https://clone-zing-mp33.herokuapp.com/
+
+https://zingmp3-pk9j9c939-hoangak47.vercel.app/
+
+https://zingmp3-indol.vercel.app/
